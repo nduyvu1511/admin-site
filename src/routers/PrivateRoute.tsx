@@ -3,9 +3,9 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { RootState } from '../core/store';
 
 const PrivateRoute = () => {
-  const isAuth = true;
+  const { token } = useSelector((state: RootState) => state.user);
 
-  return isAuth ? <Outlet /> : <Navigate to="/login" />;
+  return token ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

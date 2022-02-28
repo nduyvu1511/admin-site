@@ -1,7 +1,3 @@
-export const logo = require('./logo.png');
-export const googlePlayIcon = require('./google-play.png');
-export const appStoreIcon = require('./app-store.png');
-export const categoryIcon = require('./categoryIcon.png');
 export const cartEmptyIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"

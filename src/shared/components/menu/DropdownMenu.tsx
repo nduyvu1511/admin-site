@@ -4,9 +4,10 @@ import useClickOutside from '../../hook/useClickOutside';
 interface IDropdownMenu {
   children: ReactNode;
   list: Array<any>;
+  onSelect: Function;
 }
 
-const DropdownMenu = ({ children, list }: IDropdownMenu) => {
+const DropdownMenu = ({ children, list, onSelect }: IDropdownMenu) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const openRef = useRef<HTMLDivElement>(null);
@@ -23,13 +24,16 @@ const DropdownMenu = ({ children, list }: IDropdownMenu) => {
       {/* child */}
       <div
         ref={openRef}
-        className={`bg-light-bg dark:bg-[#1B2E4B] py-4 absolute right-0 top-[calc(100%+8px)] 
+        className={`bg-white dark:bg-[#1B2E4B] py-4 absolute right-0 top-[calc(100%+8px)] 
             rounded-[4px] shadow-shadow-1 duration-300 transition-all ${
-              open ? 'visible opacity-100 mt-0' : 'invisible opacity-0 mt-5'
+              open
+                ? 'visible opacity-100 mt-0'
+                : 'invisible opacity-0 mt-5 z-[1001]'
             }`}>
         <ul className="dark:text-dark-text-2 text-light-text font-medium">
           {list.map((item) => (
             <li
+              onClick={() => onSelect && onSelect(item.id)}
               key={item.id}
               className="flex items-center py-3 pl-6 pr-8 hover:text-indigo-700 dark:hover:text-dark-text-bold">
               {item.icon}

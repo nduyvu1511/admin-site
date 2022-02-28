@@ -12,7 +12,7 @@ const Breadcrumb = ({ parentPage, childPage }: IBreadcrumb) => {
         {parentPage}
       </Link>
       <span className="mx-1 hidden sm:block">/</span>
-      <p className="font-semibold">{childPage}</p>
+      <p className="font-medium capitalize">{childPage}</p>
     </div>
   );
 };

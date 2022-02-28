@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 
-const InputSearch = () => {
+interface InputProps {
+  isRounded?: boolean;
+  isChangedTheme?: boolean;
+  onSearch?: Function;
+}
+
+const InputSearch = ({ isRounded, isChangedTheme, onSearch }: InputProps) => {
   const navigate = useNavigate();
 
   const [text, setText] = useState('');
@@ -12,7 +18,7 @@ const InputSearch = () => {
 
     if (!text) return;
 
-    navigate(`/search?q=${text}`);
+    navigate(`/product?q=${text}`);
   };
 
   return (
@@ -21,8 +27,16 @@ const InputSearch = () => {
       <input
         type="text"
         value={text}
-        onChange={(e) => setText(e.target.value)}
-        className="bg-[#0E1726] px-3 border-[1px] border-[#202837] pl-9 outline-none h-full w-full text-sm text-dark-text font-semibold"
+        onChange={(e) => {
+          setText(e.target.value);
+          onSearch && onSearch(e.target.value);
+        }}
+        className={`${
+          isChangedTheme
+            ? 'dark:bg-[#0E1726] dark:border-[#202837] bg-white'
+            : 'bg-[#0E1726] border-[#202837]'
+        } px-3 border-[1px] pl-9 outline-none h-full w-full text-sm 
+        text-dark-text font-semibold ${isRounded ? 'rounded-[25px]' : ''}`}
         placeholder="Search..."
       />
     </form>

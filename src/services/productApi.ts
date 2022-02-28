@@ -1,34 +1,73 @@
+import {
+  DeleteWithId,
+  ProductParams,
+  ProductUpdate,
+} from './../modules/product/interface';
 import axiosClient from '.';
 
 export interface SearchKeyword {
   keyword: string;
 }
 
+export interface Token {
+  token: string;
+}
+
+export interface ParamsRequest {
+  token: string;
+  data: any;
+}
+
+export interface CategoryParams extends Token {
+  category: {
+    name: string;
+    image: string;
+  };
+}
+
 const productApi = {
   getCategories: () => {
-    return axiosClient.post('product/category', { params: {} });
+    return axiosClient.get('category/list');
   },
 
-  getConsumtionProducts: () => {
-    return axiosClient.post('information_product/list_consumption_product', {
-      params: {},
-    });
+  addCategory: (params: CategoryParams) => {
+    return axiosClient.post('category/add', { params: params });
   },
-  
-  getSearchProducts: (params: SearchKeyword) => {
-    return axiosClient.post('product/top', {
+
+  editCategory: (params: CategoryParams) => {
+    return axiosClient.put(`category/update`, {
       params: params,
     });
   },
 
-  getProductDetail: (params: object = {}) => {
-    return axiosClient.post('product_product/detail', {
+  deleteCategory: (params: DeleteWithId) => {
+    return axiosClient.post(`category/delete`, {
       params: params,
     });
   },
 
-  getProductList: (params: object = {}) => {
-    return axiosClient.post('product/top', { params: params });
+  addProduct: (product: ProductParams) => {
+    return axiosClient.post('product/add', {
+      params: product,
+    });
+  },
+
+  editProduct: (product: ProductUpdate) => {
+    return axiosClient.post(`product/update`, {
+      params: product,
+    });
+  },
+
+  deleteProduct: (params: DeleteWithId) => {
+    return axiosClient.post(`product/delete`, { params: params });
+  },
+
+  uploadImages: (formData: any) => {
+    return axiosClient.post('upload', formData);
+  },
+
+  getProductList: (query: string = '') => {
+    return axiosClient.get(`product/list/${query}`);
   },
 };
 

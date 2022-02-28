@@ -9,16 +9,8 @@ import persistStore from 'redux-persist/es/persistStore';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [
-    'language',
-    'cart',
-    'product',
-    'compare',
-    'wishlist',
-    'auth',
-    'order',
-  ],
-  blacklist: ['modal', 'user'],
+  whitelist: ['theme', 'user'],
+  blacklist: ['modal'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

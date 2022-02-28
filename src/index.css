@@ -13,11 +13,19 @@
   .container {
     @apply w-full max-w-full px-[15px] sm:px-[30px];
   }
-}
 
-body {
-  background-color: #060818;
-  color: white;
+  .btn-primary {
+    @apply flex items-center justify-center px-6 py-3 bg-indigo-600 text-[13px] font-semibold text-white rounded-sm;
+  }
+
+  .input-common {
+    @apply h-10 w-full border border-solid border-black-02 bg-light-bg dark:bg-dark-bg-opacity dark:border-white-01 px-3 
+    dark:text-dark-text text-light-text text-sm font-medium rounded-[4px];
+  }
+
+  .label-common {
+    @apply mb-2 text-sm inline-block font-medium;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -169,4 +177,36 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+@keyframes modal-show {
+  0% {
+    margin-top: -80px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal-show {
+  animation: modal-show 0.2s linear both;
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease;
+}
+
+.Toastify {
+  font-size: 14px;
 }
