@@ -1,0 +1,152 @@
+.message__item {
+  margin-bottom: 0.6rem;
+  width: 80%;
+
+  &-self {
+    margin-left: auto;
+  }
+
+  &-partner {
+    display: flex;
+    align-items: center;
+
+    &-avatar {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 0.6rem;
+
+      & img {
+        border-radius: 50%;
+      }
+    }
+
+    &-name {
+      margin-left: 0.8rem;
+      word-wrap: anywhere;
+      @include limit-line-text(1);
+      @include style-text(500, 1.3rem, 1.8rem, $text-color);
+    }
+  }
+
+  &-text {
+    width: fit-content;
+    padding: 1rem 1.4rem;
+    border-radius: 4px;
+    @include style-text(500, 1.4rem, 2.2rem, $text-color);
+    background-color: #ebebf0;
+    word-wrap: anywhere;
+
+    &-date {
+      margin-top: 0.6rem;
+      font-size: 1.1rem;
+      line-height: 1.6rem;
+    }
+  }
+
+  &-image {
+    width: fit-content;
+
+    &-text {
+      background-color: #e5efff;
+      padding: 1.2rem 0.6rem;
+      border-radius: 8px 8px 0 0;
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 2px;
+      margin-right: auto;
+      width: 80%;
+
+      &-sm {
+        width: 90%;
+      }
+
+      &--double {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      &--tripple {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      & .image-container {
+        & > span {
+          height: 100% !important;
+          position: static !important;
+        }
+
+        & img {
+          position: static !important;
+          width: auto !important;
+          height: 100% !important;
+          min-width: unset !important;
+          margin-right: unset !important;
+          border-radius: 2px;
+        }
+      }
+
+      &-image {
+        cursor: zoom-in;
+
+        &--single {
+          width: auto;
+        }
+      }
+
+      & .image-container:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-self {
+    & .message__item-text {
+      background-color: #e5efff;
+      margin-left: auto;
+    }
+
+    & .message__item-image-list {
+      margin-left: auto;
+      margin-right: unset;
+    }
+  }
+}
+
+.chat__message-mention {
+  padding: 0.8rem 1.6rem;
+  background-color: #c8deff;
+  border-radius: 0.4rem;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 1.6px;
+    border-radius: 0.3rem;
+    background-color: #3989ff;
+  }
+
+  &-name {
+    @include style-text(500, 1.3rem, 1.8rem, $text-color);
+    @include limit-line-text(1);
+    margin-bottom: 0.4rem;
+    margin-left: 0.5rem;
+
+    & strong {
+      font-weight: 600;
+    }
+  }
+
+  &-content {
+    @include style-text(500, 1.3rem, 1.8rem, $text-color);
+    @include limit-line-text(1);
+    margin-left: 0.5rem;
+  }
+}

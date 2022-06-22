@@ -1,0 +1,335 @@
+.not-found {
+  padding-block: 5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & img {
+    width: 70%;
+
+    @include responsive(lg-screen) {
+      width: 40%;
+    }
+    margin-bottom: 2rem;
+  }
+
+  & h3 {
+    @include style-text(600, 2.4rem, 3.4rem, $home-heading-color);
+    margin-bottom: 2rem;
+  }
+}
+
+.btn__scroll {
+  position: fixed;
+  z-index: 1000;
+  right: 2rem;
+  bottom: 8rem;
+  width: 4rem;
+  height: 4rem;
+  @include flex-center;
+  box-shadow: $box-shadow-1;
+  background-color: $primary-color;
+  border-radius: 50%;
+  animation: fade-in 0.3s linear;
+  @include responsive(lg-screen) {
+    bottom: 2rem;
+  }
+
+  & svg {
+    color: white;
+    font-size: 1.8rem;
+  }
+}
+
+.message {
+  @include flex-center;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: fit-content;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  padding: 2rem 1rem;
+  border-radius: 0.4rem;
+  z-index: 2000;
+  animation: fade-in linear 0.3s;
+
+  &-top {
+    top: 10%;
+  }
+
+  &-bottom {
+    top: 90%;
+  }
+
+  @include responsive(lg-screen) {
+    width: 300px;
+    padding: 3rem 2rem;
+  }
+
+  &-title {
+    @include style-text(500, 1.3rem, 2.3rem, $white);
+    text-align: center;
+    @include limit-line-text(3);
+
+    @include responsive(lg-screen) {
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+      font-weight: 600;
+    }
+  }
+
+  &-icon {
+    margin-bottom: 1rem;
+
+    @include responsive(lg-screen) {
+      margin-bottom: 2rem;
+    }
+
+    &-success {
+      fill: $success;
+      font-size: 3rem;
+      @include responsive(lg-screen) {
+        font-size: 5rem;
+      }
+    }
+
+    &-warning {
+      fill: $yellow;
+      font-size: 4rem;
+      @include responsive(lg-screen) {
+        font-size: 6rem;
+      }
+    }
+
+    &-danger {
+      fill: $danger;
+      font-size: 4rem;
+      @include responsive(lg-screen) {
+        font-size: 6rem;
+      }
+    }
+
+    &-info {
+      fill: $info;
+      font-size: 4rem;
+      @include responsive(lg-screen) {
+        font-size: 6rem;
+      }
+    }
+  }
+}
+
+.return__policy {
+  padding-top: 2rem;
+  @include style-text(500, 1.4rem, 2.4rem, $text-color);
+
+  @include responsive(lg-screen) {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  & ul {
+    margin-block: 2rem;
+
+    & p {
+      margin-bottom: 1rem;
+    }
+
+    & li {
+      margin-left: 3rem;
+    }
+  }
+}
+
+.return__policy {
+  & h3 {
+    margin-bottom: 1.2rem;
+  }
+
+  &-heading {
+    margin-top: 2rem;
+
+    @include responsive(lg-screen) {
+      margin-top: 3rem;
+    }
+  }
+
+  & p {
+    @include style-text(400, 1.4rem, 3.4rem, $text-color);
+
+    @include responsive(lg-screen) {
+      font-size: 1.6rem;
+      line-height: 3.6rem;
+    }
+  }
+}
+
+.tag {
+  @include style-text(500, 1.3rem, 2rem, $text-color-opacity);
+  border-radius: 2.5rem;
+  border: 1px solid $border-color-1;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  user-select: none;
+  text-align: center;
+
+  &-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+  }
+
+  &-md {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  &-active {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+  }
+
+  &-disabled {
+    pointer-events: none;
+  }
+}
+
+.image__show {
+  position: fixed;
+  z-index: 5000;
+  background-color: rgba($color: #000000, $alpha: 0.95);
+  inset: 0;
+
+  &-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    height: 80%;
+    width: 90%;
+
+    @include responsive(sm-screen) {
+      width: 80%;
+    }
+
+    @include responsive(md-screen) {
+      width: 70%;
+    }
+
+    @include responsive(lg-screen) {
+      width: 50%;
+    }
+
+    & .transform-component-module_wrapper__1_Fgj {
+      height: 100%;
+      width: 100%;
+
+      & .transform-component-module_content__2jYgh {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    & .image-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    & .tools {
+      display: flex;
+      justify-content: flex-end;
+      position: fixed;
+      right: 0;
+      top: 1rem;
+      z-index: 10;
+
+      & button {
+        width: 30px;
+        height: 30px;
+        // border-radius: 50%;
+        @include flex-center;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        border: none;
+        cursor: pointer;
+        border: 1px solid $white;
+
+        & svg {
+          font-size: 1.6rem;
+          color: white;
+        }
+      }
+
+      & button:nth-child(2) {
+        // margin: 0 0.2rem;
+        border-inline: 0;
+      }
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
+
+    &-icon {
+      fill: $white-opacity;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 3rem;
+      pointer-events: none;
+
+      @include responsive(lg-screen) {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+.loader-container {
+  height: 200px;
+  @include flex-center;
+  background-color: #fff;
+
+  & svg {
+    font-size: 3rem;
+    color: $text-color;
+  }
+}
+
+.list--empty {
+  @include flex-center;
+  flex-direction: column;
+  padding-block: 3rem;
+  background-color: $white;
+
+  & svg {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: $gray;
+  }
+
+  & p {
+    @include style-text(500, 1.3rem, 1.8rem, $gray);
+    @include responsive(sm-screen) {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.gradient {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 200px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
+}

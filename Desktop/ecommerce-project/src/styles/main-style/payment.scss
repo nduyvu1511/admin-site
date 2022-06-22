@@ -1,0 +1,44 @@
+.payment__order {
+  &-heading {
+    margin-bottom: 3rem;
+    @include style-text(500, 1.8rem, 2.8rem, $text-color);
+  }
+
+  &__list {
+    grid-gap: 0.8rem;
+    list-style: none;
+
+    &-item {
+      @include flex(space-between, center);
+      cursor: pointer;
+      padding: 1rem;
+      border-radius: 2px;
+      border: 1px solid $border-color-1;
+
+      &-active {
+        border: 1px solid $primary-color;
+      }
+
+      &-content {
+        flex: 1;
+        margin-right: 0.5rem;
+        display: flex;
+        align-items: center;
+
+        & p {
+          @include style-text(500, 1.3rem, 2rem, $text-color);
+          margin-inline: 1.4rem;
+        }
+
+        & img {
+          width: 40px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  &-disabled {
+    opacity: 0.5;
+  }
+}

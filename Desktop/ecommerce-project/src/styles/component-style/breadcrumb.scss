@@ -1,0 +1,60 @@
+.breadcrumb {
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding-block: 0.8rem;
+    overflow-y: auto;
+    @include hide-scrollbar;
+
+    @include responsive(sm-screen) {
+      padding-block: 1.5rem;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+
+      &-title {
+        cursor: pointer;
+        @include style-text(500, 1.1rem, 1.7rem, $text-color);
+        opacity: 0.6;
+        position: relative;
+        white-space: nowrap;
+
+        @include responsive(sm-screen) {
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+        }
+
+        @include responsive(md-screen) {
+          font-size: 1.3rem;
+          line-height: 2rem;
+        }
+
+        &:hover {
+          text-decoration: underline;
+          opacity: 1;
+        }
+
+        &-active {
+          cursor: default;
+          pointer-events: none;
+          opacity: 1;
+        }
+      }
+
+      &-icon {
+        margin-inline: 0.4rem;
+        font-size: 1.4rem;
+        opacity: 0.6;
+        color: $text-color;
+
+        @include responsive(sm-screen) {
+          font-size: 1.6rem;
+          margin-inline: 0.6rem;
+        }
+      }
+    }
+  }
+}

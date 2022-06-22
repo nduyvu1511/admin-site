@@ -1,0 +1,42 @@
+.input__quantity {
+  @include flex-center;
+  border-radius: 0.2rem;
+  border: 1px solid $black-opacity-02;
+  height: 30px;
+
+  &-disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &-btn {
+    width: 28px;
+    height: 100%;
+    border: none;
+    outline: none;
+    @include flex-center;
+    background-color: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    color: $text-color;
+  }
+
+  &-input {
+    border: none;
+    border-inline: 1px solid $black-opacity-02;
+    text-align: center;
+    width: 40px;
+    height: 100%;
+    background-color: #f4f4f4;
+    outline: none;
+    @include style-text(600, 1.2rem, 1.2rem, $text-color);
+    background-color: transparent;
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

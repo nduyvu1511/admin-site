@@ -1,0 +1,126 @@
+.form-item-inline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  position: relative;
+
+  &-wrapper {
+    flex: 1;
+  }
+
+  @include responsive(sm-screen) {
+    flex-direction: row;
+  }
+
+  & label {
+    width: 100%;
+    margin-bottom: 0.4rem;
+    @include style-text(500, 1.4rem, 2.8rem, $text-color);
+
+    @include responsive(sm-screen) {
+      text-align: right;
+      width: 120px;
+      margin-bottom: 0;
+      margin-right: 2rem;
+    }
+  }
+
+  & input,
+  textarea {
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 4px;
+    height: 40px;
+    outline: none;
+    @include style-text(500, 1.3rem, 1.3rem, $text-color);
+    padding-inline: 1rem;
+
+    @include responsive(sm-screen) {
+      flex: 1;
+    }
+  }
+
+  & textarea {
+    height: unset;
+    padding: 1.2rem;
+    padding-top: 1.6rem;
+  }
+}
+
+.form-item-text-error {
+  margin-top: 0.4rem;
+  margin-left: 0.2rem;
+  @include style-text(400, 1.2rem, 1.6rem, $danger);
+}
+
+.form-item-input-radio {
+  display: flex;
+  align-items: center;
+
+  & label {
+    width: 50px;
+    @include responsive(lg-screen) {
+      width: unset;
+    }
+    display: flex;
+    align-items: center;
+
+    & input {
+      margin-right: 1rem;
+      height: 1.8rem;
+      width: 1.8rem;
+    }
+  }
+}
+
+.form-item-date {
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  & .dropdown {
+    border: 1px solid $border-color-1;
+    margin-right: 2rem;
+    width: 33.33%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-title {
+      padding-block: 1.4rem;
+      justify-content: space-between;
+    }
+
+    &-list {
+      top: calc(100% + 0.1rem);
+    }
+  }
+}
+
+.form-item {
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+
+  & label {
+    margin-bottom: 0.6rem;
+    display: inline-block;
+  }
+
+  &-input {
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid $black-opacity-02;
+    border-radius: 2px;
+    outline: none;
+    padding: 0 1.2rem;
+    @include style-text(500, 1.4rem, 1.4rem, $text-color);
+
+    &-error {
+      border: 1px solid $danger !important;
+      background-color: $danger-opacity !important;
+    }
+  }
+}

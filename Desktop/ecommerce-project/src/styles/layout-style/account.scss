@@ -1,0 +1,273 @@
+.account-container {
+  padding-bottom: 6rem;
+  background-color: $black-opacity-005;
+
+  .account-wrapper {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    @include responsive(lg-screen) {
+      grid-template-columns: 220px 1fr;
+    }
+    grid-gap: 2rem;
+
+    .account__left {
+      display: none;
+      @include responsive(lg-screen) {
+        display: block;
+      }
+      border-radius: 0.4rem;
+      height: fit-content;
+    }
+
+    .account__right {
+      border-radius: 4px;
+    }
+  }
+}
+
+// User info
+
+.account__option-layout {
+  &-header {
+    margin-bottom: 1rem;
+    border-radius: 0.2rem;
+    @include flex(space-between, center);
+    border-bottom: 1px solid $border-color-2;
+    @include responsive(lg-screen) {
+      margin-top: 0;
+    }
+
+    & h3 {
+      @include style-text(500, 1.6rem, 2.6rem, $text-color);
+      display: none;
+
+      @include responsive(lg-screen) {
+        display: block;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+      }
+    }
+
+    & p {
+      display: none;
+      @include responsive(lg-screen) {
+        @include style-text(400, 1.3rem, 2rem, $text-color);
+        display: block;
+      }
+    }
+
+    .account__option-menu-btn {
+      @include responsive(lg-screen) {
+        display: none;
+      }
+
+      & svg {
+        font-size: 1.6rem;
+        color: $text-color;
+      }
+    }
+  }
+
+  &-body {
+    .user__info-container {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 2rem 1.5rem;
+      @include responsive(lg-screen) {
+        padding: 4rem 1.5rem;
+        flex-direction: row;
+      }
+      background-color: #fff;
+
+      .user__info-form {
+        flex: 1;
+        @include responsive(lg-screen) {
+          padding-inline: 3rem;
+        }
+
+        & .form-item-inline {
+          & label {
+            text-align: left;
+          }
+        }
+
+        .btn-primary {
+          margin-left: auto;
+        }
+
+        .form-item-inline-radio {
+          flex-direction: row;
+          display: flex;
+          align-items: center;
+          @include style-text(500, 1.4rem, 2rem, $text-color);
+          margin-bottom: 2rem;
+
+          & label:first-child {
+            text-align: left;
+            margin-right: 2rem;
+            @include responsive(sm-screen) {
+              width: 120px;
+            }
+          }
+
+          & .form-item-radio {
+            flex: 1;
+            & input[type="radio"] {
+              margin-right: 0.4rem;
+              @include responsive(sm-screen) {
+                transform: scale(1.2);
+              }
+            }
+          }
+        }
+      }
+
+      & .user__info-avatar {
+        width: 100%;
+        margin-bottom: 4rem;
+        @include responsive(lg-screen) {
+          width: 200px;
+          padding-inline: 2rem;
+          margin-bottom: 0;
+        }
+
+        &-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          & .image-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 2rem;
+          }
+
+          & .user__info-avatar-btn {
+            padding: 0.8rem 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.account__left-header {
+  border-bottom: 1px solid $border-color-2;
+  display: flex;
+  align-items: center;
+
+  &-avatar {
+    margin-right: 1.6rem;
+
+    & .image-container {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  &-info {
+    &-title {
+      @include style-text(400, 1.3rem, 1.8rem, $text-color);
+      margin-bottom: 0.2rem;
+      @include limit-line-text(1);
+    }
+
+    &-name {
+      @include style-text(500, 1.6rem, 2.6rem, $text-color);
+      @include limit-line-text(1);
+    }
+  }
+}
+
+.account__left-body {
+  margin-top: 1rem;
+
+  &-list {
+    list-style: none;
+
+    &-item {
+      @include flex(flex-start, center);
+      padding-block: 1.2rem;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 0.2rem;
+      transition: all 0.1s ease;
+
+      &:hover {
+        .account__left-body-list-item-heading {
+          color: $primary-color;
+          & svg {
+            color: $primary-color;
+          }
+        }
+      }
+
+      &-heading {
+        display: flex;
+        align-items: center;
+        @include style-text(500, 1.3rem, 1.3rem, $text-color);
+
+        & svg {
+          margin-right: 1.6rem;
+          font-size: 1.6rem;
+          color: $text-color;
+        }
+      }
+
+      &-active {
+        .account__left-body-list-item-heading {
+          color: $primary-color;
+          & svg {
+            color: $primary-color;
+          }
+        }
+      }
+
+      &-logout {
+        & h3 {
+          color: $danger;
+        }
+
+        & svg {
+          color: $danger;
+        }
+
+        &:hover {
+          & h3,
+          svg {
+            color: $danger !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.account__left-body-list-item-general-active {
+  background-color: $primary-color-opacity;
+
+  & .account__left-body-list-item-heading {
+    color: $primary-color;
+  }
+
+  & svg {
+    fill: $primary-color;
+  }
+}
+
+.modal {
+  & .account__left-header {
+    padding: 1.4rem;
+  }
+
+  & .account__left-body-list {
+    &-item {
+      padding-inline: 1.4rem;
+    }
+  }
+}

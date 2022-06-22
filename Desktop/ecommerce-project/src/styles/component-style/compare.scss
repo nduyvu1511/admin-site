@@ -1,0 +1,123 @@
+.compare {
+  padding-block: 3rem;
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    &-text {
+      @include style-text(500, 1.6rem, 2.2rem, $text-color);
+    }
+
+    & .btn-primary {
+      margin-top: 3rem;
+    }
+  }
+
+  &__header {
+    @include flex(flex-end, center);
+    margin-bottom: 1rem;
+  }
+}
+
+.compare-modal {
+  padding: 2rem;
+
+  & .compare {
+    margin-bottom: 0;
+  }
+}
+
+.modal__container {
+  .modal__container-compare {
+    .modal-center {
+      padding: 0;
+    }
+  }
+}
+
+.compare__table {
+  display: flex;
+  @include style-text(500, 1.3rem, 2.3rem, $text-color);
+  @include responsive(sm-screen) {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+  &-item-wrapper {
+    border: 1px solid $border-color-1;
+    border-left: 0;
+  }
+
+  &-item {
+    height: 60px;
+    padding: 1rem;
+    border-bottom: 1px solid $border-color-1;
+
+    &-img {
+      height: 150px;
+
+      @include responsive(sm-screen) {
+        height: 200px;
+      }
+
+      & .image-container {
+        height: 100%;
+      }
+
+      & .compare__table-item-delete-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 2;
+        background-color: #fff;
+        width: 3rem;
+        height: 3rem;
+        @include flex-center;
+        box-shadow: $box-shadow-1;
+        border-radius: 50%;
+        border: 1px solid $border-color-1;
+
+        & svg {
+          fill: $danger;
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    &-name-wrapper {
+      height: 90px;
+    }
+
+    &-name {
+      @include limit-line-text(3);
+    }
+  }
+
+  &-header {
+    width: 20%;
+    border: 1px solid $border-color-1;
+    @include responsive(md-screen) {
+      width: 10%;
+    }
+
+    & .compare__table-item:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &-body {
+    width: 80%;
+    @include responsive(md-screen) {
+      width: 90%;
+    }
+  }
+
+  & .swiper-button-prev,
+  .swiper-button-next {
+    top: 30%;
+    @include responsive(sm-screen) {
+      top: 40%;
+    }
+  }
+}

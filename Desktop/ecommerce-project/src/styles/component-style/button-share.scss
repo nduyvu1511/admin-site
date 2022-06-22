@@ -1,0 +1,44 @@
+.button-share {
+  @include flex(flex-start, center);
+
+  & button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    @include flex-center;
+    & svg {
+      font-size: 1.6rem;
+      fill: $white;
+    }
+    margin-right: 0.8rem;
+  }
+
+  .button-share-facebook {
+    background-color: #3b5998 !important;
+  }
+
+  .button-share-messenger {
+    background-color: #0084ff !important;
+  }
+
+  .button-share-twitter {
+    background-color: #1da1f2 !important;
+  }
+
+  .button-share-whatsapp {
+    background-color: #0077b5 !important;
+  }
+
+  .button-share-pinterest {
+    background-color: #e60023 !important;
+  }
+
+  .button-share-email {
+    background-color: $primary !important;
+  }
+
+  .button-share-linkedin {
+    background-color: #0077b5 !important;
+    margin-right: 0;
+  }
+}

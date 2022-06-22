@@ -1,0 +1,108 @@
+.address__form {
+  background-color: $white;
+
+  &-header {
+    width: 100%;
+    @include flex(space-between, center);
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+    border-bottom: 1px solid $border-color-1;
+
+    &-heading {
+      @include style-text(500, 1.8rem, 1.8rem, $text-color);
+    }
+
+    & button {
+      & svg {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &-body {
+    margin-top: 2rem;
+
+    &-form {
+      &-two {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include responsive(md-screen) {
+          grid-gap: 2rem;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .form-item-inline {
+        & input,
+        textarea {
+          font-weight: 500;
+          color: $text-color;
+        }
+
+        .dropdown {
+          flex: 1;
+          border: 1px solid $black-opacity-02;
+          border-radius: 0.2rem;
+          height: 40px;
+
+          &-title {
+            padding: 0 1.5rem;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            color: $text-color;
+            height: 4rem;
+          }
+
+          &-list {
+            width: calc(100% + 0.1rem);
+            top: calc(100% + 0.1rem);
+          }
+        }
+
+        & .form-item-input-error {
+          border: 1px solid $danger;
+        }
+      }
+
+      .form-item-inline-dropdown {
+        display: flex;
+        flex-direction: column;
+
+        .dropdown {
+          width: 100%;
+          height: 40px;
+        }
+
+        @media screen and(min-width: 500px) {
+          // flex-direction: row;
+
+          & label {
+            width: 150px;
+          }
+        }
+      }
+
+      .btn-save {
+        margin-left: auto;
+      }
+
+      & textarea {
+        height: unset;
+        padding: 1.2rem;
+      }
+    }
+  }
+}
+
+.dropdown-40 {
+  .dropdown-list {
+    max-height: 40vh;
+  }
+}
+
+.dropdown-30 {
+  .dropdown-list {
+    max-height: 30vh;
+  }
+}

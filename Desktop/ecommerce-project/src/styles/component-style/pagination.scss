@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3rem;
+
+  &-btn {
+    width: 28px;
+    height: 28px;
+    @include flex-center;
+    border-radius: 50%;
+    @include style-text(600, 1.3rem, 1.3rem, $text-color);
+    margin-right: 1rem;
+    user-select: none;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    & svg {
+      font-size: 2rem;
+    }
+
+    &-disable {
+      pointer-events: none;
+    }
+
+    &-active {
+      background-color: $primary-color;
+      color: white;
+      pointer-events: none;
+    }
+  }
+
+  &-dots {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+  }
+}

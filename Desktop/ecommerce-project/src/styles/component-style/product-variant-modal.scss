@@ -1,0 +1,110 @@
+.product__variant-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  background-color: $white;
+  z-index: 2000;
+  border-top: 1px solid $border-color-1;
+  box-shadow: $box-shadow-1;
+  animation: grow-up 0.2s linear;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem;
+
+    @include responsive(sm-screen) {
+      padding: 2rem;
+    }
+
+    &-left {
+      display: flex;
+      align-items: center;
+
+      & .image-container {
+        margin-right: 2rem;
+        width: 100px;
+        height: 100px;
+      }
+
+      & p {
+        font-family: $second-font;
+        @include style-text(600, 1.4rem, 2rem, $danger);
+
+        & span {
+          color: $text-color;
+          margin-right: 0.3rem;
+        }
+
+        & span:nth-child(1) {
+          margin-left: 0.4rem;
+        }
+      }
+    }
+
+    & svg {
+      font-size: 1.8rem;
+      fill: $text-color;
+    }
+  }
+
+  &-variants {
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 1.2rem;
+    border-top: 1px solid $border-color-1;
+
+    & .product__variation {
+      flex-direction: column;
+    }
+
+    @include responsive(sm-screen) {
+      padding: 2rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &-quantity {
+    @include flex(space-between, center);
+    border-top: 1px solid $border-color-1;
+    padding: 1.2rem;
+
+    @include responsive(sm-screen) {
+      padding: 2rem;
+    }
+
+    & p {
+      @include style-text(500, 1.3rm, 1.8rem, $text-color);
+    }
+  }
+
+  &-btn {
+    border-top: 1px solid $border-color-1;
+    padding: 1.2rem;
+    @include responsive(sm-screen) {
+      padding: 2rem;
+    }
+
+    & button {
+      width: 100%;
+      padding-block: 1.6rem;
+      background-color: $danger;
+      font-size: 1.4rem;
+    }
+
+    & .product__intro-shop-btn {
+      display: flex !important;
+    }
+  }
+}
+
+.product__variant-modal-overlay {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  position: fixed;
+  z-index: 1999;
+  inset: 0;
+  cursor: pointer;
+}

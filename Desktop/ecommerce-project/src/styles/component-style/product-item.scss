@@ -1,0 +1,384 @@
+.product__card {
+  position: relative;
+  @include flex(space-between, flex-start);
+  flex-direction: column;
+  border: 1px solid $border-color-2;
+  transition: all 0.3s ease;
+  background-color: $white;
+
+  &:hover {
+    @include responsive(lg-screen) {
+      box-shadow: $box-shadow-1;
+    }
+  }
+
+  &:hover &__sub-item {
+    @include responsive(lg-screen) {
+      transform: translateX(0);
+      @include show;
+    }
+  }
+
+  &:hover {
+    .product__card__img-top-first {
+      @include responsive(lg-screen) {
+        position: absolute;
+        opacity: 0;
+      }
+    }
+  }
+
+  &:hover {
+    .product__card__img-top-second {
+      @include responsive(lg-screen) {
+        opacity: 1;
+        position: static;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    aspect-ratio: 1;
+
+    & .image-container {
+      width: 100%;
+    }
+
+    & .product__card-deal-label {
+      position: absolute;
+      left: 0.6rem;
+      top: 0.6rem;
+      z-index: 2;
+      padding: 0.4rem 0.6rem;
+      border-radius: 0.2rem;
+      background-color: $danger;
+      @include style-text(600, 1.2rem, 1.2rem, $white);
+      font-family: $second-font;
+      white-space: nowrap;
+    }
+
+    &-item {
+      & > span {
+        height: 100% !important;
+      }
+    }
+
+    .product__card__sub {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2;
+      display: none;
+      @include responsive(md-screen) {
+        display: block;
+      }
+
+      &-item {
+        @include flex-center;
+        background-color: #fff;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        outline: none;
+        border: none;
+        font-size: 1.6rem;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
+        @include responsive(lg-screen) {
+          transform: translateX(50%);
+          @include hidden;
+          width: 32px;
+          height: 32px;
+        }
+
+        & svg {
+          font-size: 1.2rem;
+          fill: $text-color;
+          @include responsive(lg-screen) {
+            font-size: 1.6rem;
+          }
+        }
+
+        &:hover {
+          @include responsive(lg-screen) {
+            background-color: $primary-color;
+
+            .tool-tip {
+              display: block;
+            }
+          }
+          & svg {
+            @include responsive(lg-screen) {
+              fill: white;
+              color: white;
+            }
+          }
+        }
+
+        &:first-child {
+          display: none;
+          margin-bottom: 0.5rem;
+          transition: all ease 0.2s;
+          @include responsive(lg-screen) {
+            display: block;
+          }
+        }
+
+        &:nth-child(2) {
+          transition: all ease 0.4s;
+          margin-bottom: 1rem;
+        }
+
+        &:nth-child(3) {
+          transition: all ease 0.6s;
+        }
+
+        position: relative;
+
+        & .tool-tip {
+          display: none;
+          font-family: $second-font;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          padding: 0.6rem 0.6rem;
+          white-space: nowrap;
+          background-color: $primary-color;
+          @include style-text(500, 1.2rem, 1.2rem, $white);
+          border-radius: 0.4rem;
+          box-shadow: $box-shadow-1;
+
+          &::after {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 14px solid $primary-color;
+          }
+        }
+      }
+    }
+
+    &-top {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      &-second {
+        transition: opacity 0.5s;
+        position: absolute;
+        opacity: 0;
+      }
+
+      &-first {
+        position: static;
+        opacity: 1;
+        transition: opacity 0.5s;
+      }
+    }
+
+    // &-type {
+    //   display: flex;
+    //   flex-direction: column;
+    //   position: absolute;
+    //   top: 0rem;
+    //   left: 0rem;
+    //   @include style-text(600, 1.1rem, 1.1rem, $green);
+    //   text-transform: uppercase;
+    //   font-family: $second-font;
+
+    //   &-item {
+    //     text-align: center;
+    //     padding: 0.6rem 0.8rem;
+    //     @include style-text(700, 1.2rem, 1.2rem, $white-opacity);
+    //   }
+
+    //   &-sale {
+    //     color: #fff;
+    //     background-color: $danger;
+    //   }
+
+    //   &-material {
+    //     color: $white;
+    //     background-color: $success;
+    //   }
+    // }
+  }
+
+  &-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem;
+    flex: 1;
+    @include responsive(md-screen) {
+      padding: 1.25rem;
+    }
+  }
+
+  &__content {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &-title {
+      cursor: pointer;
+      flex: 1;
+      @include style-text(500, 1.3rem, 2rem, $heading-color);
+      @include limit-line-text(2);
+      margin-bottom: 0.6rem;
+
+      &:hover {
+        @include responsive(lg-screen) {
+          color: $primary-color;
+        }
+      }
+    }
+
+    &-status {
+      text-transform: uppercase;
+      font-family: $second-font;
+      @include style-text(600, 1.1rem, 1.1rem, $green);
+      margin-bottom: 0.5rem;
+
+      &-out-of-stock {
+        color: $danger;
+      }
+    }
+
+    &-rating {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+
+      &-item {
+        color: $yellow;
+      }
+    }
+
+    &-price {
+      font-family: $second-font;
+      @include style-text(600, 1.3rem, 2rem, $text-color);
+      @include flex(flex-start, center);
+
+      &-origin {
+        color: $red;
+        font-weight: 600;
+        @media screen and(min-width: 400px) {
+          font-size: 1.6rem;
+          font-weight: 2.2rem;
+        }
+      }
+
+      &-sale {
+        opacity: 0.5;
+        text-decoration: line-through;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &__bottom {
+    @include flex(space-between, center);
+    margin-top: 1rem;
+
+    &-btn {
+      font-family: $second-font;
+      @include button-outline(
+        $primary-color,
+        1.4rem,
+        500,
+        1rem,
+        0.8rem,
+        1.2rem
+      );
+      width: 100%;
+      transition: all ease 0.3s;
+      border-radius: 25px;
+
+      &:hover {
+        @include responsive(lg-screen) {
+          background-color: $primary-color;
+          color: #fff;
+        }
+      }
+
+      &-icon {
+        opacity: 0.2;
+        font-size: 1.8rem;
+      }
+
+      & svg {
+        font-size: 1.6rem;
+        margin-right: 0.6rem;
+      }
+    }
+  }
+
+  // .product__card__bottom-hover {
+  //   @include responsive(lg-screen) {
+  //     position: absolute;
+  //     width: calc(100% + 1px);
+  //     left: 50%;
+  //     transform: translateX(-50%);
+
+  //     height: 60px;
+  //     display: block;
+  //     bottom: calc(0% - 60px);
+  //     border: 1px solid $border-color-1;
+  //     border-top: 0;
+  //     background-color: white;
+  //     padding: 0 1rem;
+  //     transition: all 0.5s ease;
+  //     z-index: 10;
+  //     border-radius: 0 0 4px 4px;
+  //     @include hidden;
+  //   }
+
+  //   & .product__card__bottom-btn {
+  //     display: none;
+  //     font-family: $second-font;
+  //     background-color: $primary-color;
+  //     color: $white;
+  //     border: none;
+  //     margin-top: 1.5rem;
+  //     @include responsive(lg-screen) {
+  //       display: flex;
+  //     }
+  //     @include responsive(lg-screen) {
+  //       margin-top: 1rem;
+  //     }
+
+  //     & svg {
+  //       font-size: 1.6rem;
+  //       margin-right: 0.6rem;
+  //     }
+  //   }
+  // }
+
+  // &:hover .product__card__bottom-hover {
+  //   @include responsive(lg-screen) {
+  //     @include show;
+  //   }
+  // }
+
+  & &:hover {
+    // border: 1px solid $border-product-hover;
+    @include responsive(lg-screen) {
+      border-bottom: 0;
+    }
+  }
+}

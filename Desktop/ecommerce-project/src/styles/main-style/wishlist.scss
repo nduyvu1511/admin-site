@@ -1,0 +1,130 @@
+.wishlist-container {
+  .wishlist-wrapper {
+    padding-block: 2rem;
+    .wishlist-table {
+      border-collapse: collapse;
+      width: 100%;
+
+      .table-row-heading {
+        display: none;
+        @include responsive(sm-screen) {
+          display: table-row;
+        }
+      }
+
+      .table-input-check-all-sm {
+        display: block;
+        @include responsive(sm-screen) {
+          display: none;
+        }
+
+        & th {
+          @include flex(flex-end, center);
+          @include style-text(500, 1.4rem, 1.4rem, $home-heading-color);
+
+          & input {
+            margin-left: 1rem;
+          }
+        }
+      }
+
+      & tr {
+        & th,
+        td {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          @include responsive(sm-screen) {
+            display: table-cell;
+            width: unset;
+          }
+        }
+
+        .table-col-center {
+          justify-content: right;
+        }
+
+        & th {
+          border-top: 1px solid $border-color-1;
+          border-inline: 1px solid $border-color-1;
+          padding: 1rem;
+          text-align: left;
+          @include style-text(500, 1.4rem, 3rem, $text-color);
+        }
+
+        & td {
+          border: 1px solid $border-color-1;
+          padding: 1rem;
+        }
+      }
+
+      .wishlist__list {
+        &-item {
+          @include style-text(500, 1.3rem, 2.6rem, $text-color);
+
+          .btn-delete-wishlist {
+            & svg {
+              pointer-events: none;
+              font-size: 2rem;
+              fill: $danger;
+            }
+          }
+
+          &-name {
+            @include responsive(sm-screen) {
+              max-width: 400px;
+            }
+            & a {
+              color: $text-color;
+            }
+          }
+
+          & .image-container {
+            width: 80px;
+            height: 80px;
+            @include responsive(lg-screen) {
+              width: 70px;
+              height: 70px;
+            }
+          }
+
+          &-status {
+            display: flex;
+            align-items: center;
+            & svg {
+              font-size: 2.4rem;
+              margin-right: 0.6rem;
+            }
+          }
+
+          .btn-add {
+            min-width: 120px;
+          }
+        }
+      }
+
+      .table-col-center {
+        text-align: center;
+      }
+    }
+  }
+
+  .wishlist__empty {
+    padding-block: 3rem;
+    @include flex-center;
+    flex-direction: column;
+
+    & svg {
+      margin-bottom: 3rem;
+    }
+
+    &-text {
+      @include style-text(500, 1.6rem, 2.5rem, $text-color);
+      margin-bottom: 3rem;
+    }
+
+    & a {
+      max-width: 140px;
+    }
+  }
+}

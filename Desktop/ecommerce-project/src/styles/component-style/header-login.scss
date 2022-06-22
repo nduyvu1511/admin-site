@@ -1,0 +1,36 @@
+.header__login {
+  height: $header-login-height;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.06);
+  display: none;
+  @include responsive(lg-screen) {
+    display: block;
+  }
+
+  &-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    & .image-container {
+      & > span {
+        position: static !important;
+      }
+
+      & .image {
+        position: static !important;
+        width: 160px !important;
+        height: auto !important;
+      }
+    }
+
+    &-logo {
+      display: flex;
+      align-items: end;
+
+      & p {
+        margin-left: 2rem;
+        @include style-text(600, 1.8rem, 2.6rem, $heading-color);
+      }
+    }
+  }
+}

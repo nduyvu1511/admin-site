@@ -1,0 +1,110 @@
+.contact__container {
+  margin-bottom: 5rem;
+
+  & .contact-heading {
+    @include style-text(400, 2.8rem, 3.8rem, $text-color);
+    margin-bottom: 1rem;
+
+    @include responsive(lg-screen) {
+      font-size: 4rem;
+      line-height: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  & .contact-paragraph {
+    @include style-text(500, 1.4rem, 2.4rem, $text-color);
+
+    @include responsive(lg-screen) {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+    }
+  }
+
+  @include responsive(lg-screen) {
+    margin-bottom: 10rem;
+  }
+
+  & .contact__header {
+    text-align: center;
+    margin-bottom: 4rem;
+    @include responsive(lg-screen) {
+      margin-bottom: 7rem;
+    }
+  }
+
+  & .contact__body {
+    &-list {
+      list-style: none;
+      grid-gap: 2rem;
+      margin-bottom: 4rem;
+      @include responsive(lg-screen) {
+        grid-gap: 4rem;
+        margin-bottom: 4rem;
+      }
+
+      &-item {
+        @include flex-center;
+        flex-direction: column;
+        background-color: #edeef5;
+        border-radius: 0.6rem;
+        text-align: center;
+        padding: 3rem 2rem;
+
+        @include responsive(xl-screen) {
+          padding: 3rem;
+        }
+
+        & svg {
+          font-size: 4rem;
+          color: $indigo;
+          margin-bottom: 1rem;
+        }
+
+        & h5 {
+          @include style-text(600, 1.7rem, 2.7rem, $home-heading-color);
+          margin-bottom: 1rem;
+        }
+
+        & p {
+          @include style-text(500, 1.4rem, 2.4rem, $text-color);
+        }
+      }
+    }
+
+    &-form-wrapper {
+      padding: 4rem 2rem;
+
+      @include responsive(md-screen) {
+        padding: 4rem 8rem;
+      }
+
+      @include responsive(ld-screen) {
+        padding: 8rem 16rem;
+      }
+
+      @include responsive(xl-screen) {
+        padding: 8rem 24rem;
+      }
+
+      border-radius: 1rem;
+      box-shadow: $box-shadow-4;
+      border: 1px solid $border-color-2;
+      text-align: center;
+
+      & .contact__body-form-header {
+        padding-bottom: 5rem;
+        border-bottom: 1px solid $border-color-2;
+      }
+
+      & .contact__body-form {
+        padding-block: 5rem;
+
+        & textarea {
+          height: unset;
+          padding: 1.6rem;
+        }
+      }
+    }
+  }
+}

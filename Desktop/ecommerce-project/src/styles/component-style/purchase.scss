@@ -1,0 +1,193 @@
+.purchase__list {
+  margin-top: 1.4rem;
+
+  &-no-purchase {
+    @include flex-center;
+    flex-direction: column;
+    padding-block: 2rem;
+
+    & svg {
+      color: $gray;
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-item {
+    list-style: none;
+    background-color: #fff;
+    padding: 1rem 1.5rem;
+
+    @include responsive(lg-screen) {
+      padding-inline: 3rem;
+    }
+
+    & + & {
+      margin-top: 1.4rem;
+    }
+
+    & .purchase__item {
+      &-top {
+        @include flex(flex-start, center);
+        border-bottom: 1px solid $border-color-2;
+        padding-block: 1rem;
+      }
+
+      &-avatar {
+        width: 80px;
+        margin-right: 1rem;
+
+        & img {
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+
+      &-content {
+        flex: 1;
+        @include responsive(sm-screen) {
+          margin-right: 2rem;
+        }
+
+        &-name {
+          @include style-text(500, 1.5rem, 2.2rem, $text-color);
+          margin-bottom: 0.6rem;
+          display: block;
+          @include limit-line-text(3);
+        }
+
+        &-qty {
+          display: flex;
+          align-items: center;
+          @include style-text(500, 1.3rem, 2.3rem, $gray);
+
+          & span {
+            margin-left: 0.3rem;
+          }
+
+          & p {
+            margin-left: 1rem;
+            @include style-text(500, 1.3rem, 2.3rem, $danger);
+            display: block;
+            @include responsive(sm-screen) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &-price {
+        @include style-text(500, 1.5rem, 2.5rem, $danger);
+        display: none;
+        @include responsive(sm-screen) {
+          display: block;
+        }
+      }
+
+      &-middle {
+        padding-block: 0.4rem;
+        border-bottom: 1px solid $border-color-2;
+
+        & .purchase__item-total-price {
+          @include style-text(500, 1.3rem, 2.3rem, $text-color);
+          @include flex(end, baseline);
+
+          & span {
+            color: $danger;
+            margin-left: 1rem;
+            font-size: 2rem;
+            line-height: 3rem;
+          }
+        }
+      }
+
+      &-actions {
+        @include flex(end, center);
+        padding-block: 1rem;
+
+        & button {
+          padding: 0.8rem 1.6rem;
+        }
+
+        & button:first-child {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.purchase__modal {
+  & .modal {
+    max-width: 750px;
+    width: 100%;
+    padding: 3rem;
+
+    & .rating__form {
+      &-star {
+        width: 100%;
+        text-align: center;
+        padding-block: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      &-header {
+        display: flex;
+        margin-top: 3rem;
+
+        &-img {
+          margin-right: 1rem;
+
+          & img {
+            height: 70px;
+            width: 70px;
+            object-fit: cover;
+          }
+        }
+
+        &-info {
+          &-name {
+            @include style-text(500, 1.4rem, 2.4rem, $home-heading-color);
+          }
+
+          &-variant {
+            @include style-text(500, 1.3rem, 2.3rem, $text-color);
+          }
+        }
+      }
+
+      &-footer {
+        @include flex(end, center);
+        margin-top: 2rem;
+
+        & button {
+          padding: 0.8rem 1.5rem;
+        }
+
+        & button:first-child {
+          margin-right: 1rem;
+          background-color: white;
+          color: $text-color;
+          border: 1px solid $border-color-1;
+        }
+      }
+    }
+  }
+}
+
+.account__option-layout-body {
+  & .product__rating-pagination {
+    background-color: $white;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+
+    @include responsive(lg-screen) {
+      margin-top: 2rem;
+    }
+
+    & .pagination {
+      margin-top: 0;
+    }
+  }
+}

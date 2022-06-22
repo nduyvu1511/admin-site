@@ -1,0 +1,26 @@
+.voucher-container {
+  background-color: #fff;
+  padding: 3rem 1.5rem;
+  @include responsive(lg-screen) {
+    padding-inline: 3rem;
+  }
+
+  & .voucher__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    @include responsive(md-screen) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+.voucher--empty {
+  @include flex-center;
+  flex-direction: column;
+
+  & p {
+    margin-top: 2rem;
+    @include style-text(500, 1.5rem, 2.2rem, $text-color);
+  }
+}

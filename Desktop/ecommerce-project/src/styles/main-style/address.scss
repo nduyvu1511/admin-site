@@ -1,0 +1,49 @@
+.account__option-layout-body {
+}
+
+.user__address {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  &-btn-add {
+    height: 60px;
+    margin-bottom: 1rem;
+    // border-radius: 4px;
+    background-color: $white;
+    @include flex-center;
+    @include style-text(600, 1.3rem, 2.3rem, $primary-color);
+    border: 1px dashed $border-color-1;
+
+    @include responsive(lg-screen) {
+      @include style-text(600, 1.5rem, 2.5rem, $primary-color);
+    }
+
+    & svg {
+      font-size: 1.8rem;
+      fill: $primary-color;
+      margin-right: 1.2rem;
+      @include responsive(lg-screen) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.address__container {
+  .modal {
+    width: 100%;
+    max-height: 96vh;
+    max-width: 500px;
+    padding: 3rem 2rem;
+
+    @include responsive(md-screen) {
+      padding: 3rem;
+    }
+  }
+}
+
+.address-loading {
+  padding: 2rem;
+  background-color: $white;
+}

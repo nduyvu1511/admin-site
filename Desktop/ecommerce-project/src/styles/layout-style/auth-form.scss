@@ -1,0 +1,212 @@
+.auth-container {
+  height: 100%;
+  max-height: calc(100vh - $header-mobile-height);
+
+  @include responsive(md-screen) {
+    padding-block: 4rem;
+  }
+  @include responsive(lg-screen) {
+    padding-block: 6rem;
+  }
+
+  @include responsive(lg-screen) {
+    min-height: calc(100vh - $header-login-height);
+    max-height: calc(100vh - $header-login-height);
+  }
+
+  & .auth__inner {
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1040px;
+    width: 100%;
+    margin-top: 3rem;
+    @include responsive(xs-screen) {
+      padding-inline: 1rem;
+    }
+    @include responsive(sm-screen) {
+      padding-inline: 2rem;
+      margin-top: 4rem;
+    }
+    @include responsive(md-screen) {
+      margin-top: 0;
+      padding-inline: 4rem;
+    }
+  }
+
+  & .auth__inner-left {
+    margin-bottom: 4rem;
+    & .image-container {
+      position: static;
+
+      & > span {
+        position: static !important;
+      }
+
+      & .image {
+        position: static !important;
+        width: 100px !important;
+        min-width: unset !important;
+        height: auto !important;
+        @include responsive(md-screen) {
+          width: 150px !important;
+          height: auto !important;
+        }
+      }
+    }
+
+    @include responsive(lg-screen) {
+      display: none;
+    }
+  }
+
+  & .auth__inner-right {
+    background-color: #fff;
+    padding-bottom: 6rem;
+    width: 100%;
+    border-radius: 0.4rem;
+    margin: 0 auto;
+
+    @include responsive(sm-screen) {
+      max-width: 450px;
+    }
+
+    @include responsive(lg-screen) {
+      max-width: 400px;
+      padding: 3rem;
+      border: 1px solid $border-color-1;
+    }
+
+    & .modal__otp-close-btn {
+      display: none;
+    }
+  }
+
+  & .form-heading {
+    display: none;
+    @include style-text(500, 1.6rem, 2.6rem, $text-color);
+    margin-bottom: 3rem;
+    @include responsive(lg-screen) {
+      @include style-text(500, 1.8rem, 2.8rem, $text-color);
+      display: block;
+    }
+  }
+
+  & .form-control {
+    & .btn-primary {
+      width: 100%;
+      padding-block: 1rem;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      border-radius: 0.2rem;
+      margin-top: 3rem;
+    }
+  }
+
+  & .form-control-auth {
+    padding-top: 0;
+
+    & .form-item {
+      &-wrapper {
+        position: relative;
+
+        & .form-item-input-pw-icon {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          & svg {
+            font-size: 1.8rem;
+            color: $gray;
+          }
+        }
+      }
+
+      &-forgot-pw {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1rem;
+        & a {
+          @include style-text(500, 1.2rem, 1.2rem, $text-color);
+        }
+      }
+    }
+  }
+
+  .form-footer {
+    &-separate {
+      margin-block: 2rem;
+      text-align: center;
+      @include flex-center;
+
+      .text {
+        padding-inline: 1.6rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: $text-color-opacity;
+      }
+
+      .left {
+        border-bottom: 1px solid $border-color-1;
+        flex: 1;
+      }
+      .right {
+        border-bottom: 1px solid $border-color-1;
+        flex: 1;
+      }
+    }
+
+    &-others {
+      display: flex;
+      flex-direction: column;
+      @include responsive(lg-screen) {
+        flex-direction: row;
+      }
+
+      & .btn-primary-outline {
+        border-radius: 0.2rem;
+        border: 1px solid $border-color-1;
+        color: $text-color;
+        height: 100%;
+        flex: 1;
+        padding-inline: 1rem;
+        margin-bottom: 1rem;
+
+        @include responsive(lg-screen) {
+          margin-right: 1rem;
+          margin-bottom: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+          margin-bottom: 0;
+        }
+
+        & svg {
+          margin-right: 1rem;
+          font-size: 2rem;
+        }
+
+        & span {
+          flex: 1;
+          @include responsive(lg-screen) {
+            flex: unset;
+          }
+        }
+
+        &:nth-child(2) {
+          & svg {
+            color: $primary;
+          }
+        }
+      }
+
+      & .btn-primary:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  & input {
+    border-radius: 0.2rem;
+  }
+}

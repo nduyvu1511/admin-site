@@ -1,0 +1,105 @@
+.header__mobile-container {
+  display: block;
+  background-color: transparent;
+  height: $header-mobile-height;
+  z-index: 900;
+  transition: background-color 0.2s linear;
+  box-shadow: $header-mobile-box-shadow;
+
+  @include responsive(lg-screen) {
+    display: none;
+  }
+
+  & .image-container {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    & .image {
+      border-radius: 50%;
+    }
+  }
+
+  & svg {
+    fill: $primary-color;
+    color: $primary-color;
+    font-size: 2.4rem;
+  }
+
+  & .header__mobile {
+    @include flex(space-between, center);
+    padding-inline: 1.2rem;
+    height: 100%;
+    border-bottom: 1px solid $border-color-2;
+
+    &-left {
+      margin-right: 1.4rem;
+      @include responsive(lsmscreen) {
+        margin-right: 2rem;
+      }
+
+      & button {
+      }
+    }
+
+    &-center {
+      flex: 1;
+      @include flex-center;
+
+      & > div {
+        flex: 1;
+      }
+
+      & p {
+        @include limit-line-text(1);
+        @include style-text(500, 1.4rem, 2.4rem, $text-color);
+
+        @include responsive(sm-screen) {
+          font-size: 1.5rem;
+          line-height: 2.5rem;
+        }
+      }
+
+      & .header__search-form {
+        height: 30px;
+        border: 1px solid $primary-color;
+      }
+    }
+
+    &-right {
+      display: flex;
+      justify-content: flex-end;
+      margin-left: 1.4rem;
+      @include responsive(sm-screen) {
+        margin-left: 2rem;
+      }
+
+      & button:nth-child(2) {
+        margin-left: 1rem;
+        @include responsive(sm-screen) {
+          margin-left: 1.6rem;
+        }
+      }
+    }
+  }
+
+  &-active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $primary-color;
+    border-bottom: none;
+
+    & svg {
+      fill: $white;
+      color: $white;
+    }
+
+    & .header__mobile-center {
+      & p {
+        color: $white;
+      }
+    }
+  }
+}

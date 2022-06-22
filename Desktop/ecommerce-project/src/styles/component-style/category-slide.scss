@@ -1,0 +1,39 @@
+.category__slide {
+  padding-block: 1rem;
+  overflow: hidden;
+  position: relative;
+  display: none;
+  @include responsive(lg-screen) {
+    display: block;
+  }
+
+  &-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    padding: 1rem;
+    background-color: #fff;
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    display: flex;
+    margin-inline: 2rem;
+    transition: all 0.3s ease;
+
+    &-item {
+      white-space: nowrap;
+      @include style-text(500, 1.3rem, 2rem, $text-color);
+      margin-right: 2.6rem;
+    }
+  }
+}

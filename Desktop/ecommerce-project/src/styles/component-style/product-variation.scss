@@ -1,0 +1,78 @@
+.product__variation {
+  display: flex;
+  flex-direction: column;
+
+  @include responsive(md-screen) {
+    flex-direction: row;
+  }
+
+  &-heading {
+    @include style-text(500, 1.3rem, 2rem, $text-color);
+    width: 100px;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    @include responsive(md-screen) {
+      margin-bottom: 0;
+      margin-right: 2rem;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    flex: 1;
+
+    &-item {
+      position: relative;
+      @include flex-center;
+      cursor: pointer;
+      margin-right: 0.8rem;
+      margin-bottom: 0.8rem;
+      height: 36px;
+      white-space: nowrap;
+      padding: 0 1.8rem;
+      border-radius: 2px;
+      border: 1px solid $border-color-1;
+      @include style-text(500, 1.2rem, 1.2rem, $text-color);
+      user-select: none;
+
+      @include responsive(sm-screen) {
+        font-size: 1.3rem;
+        line-height: 1.3rem;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &-icon {
+        position: absolute;
+        background-color: $danger;
+        right: -1px;
+        top: -1px;
+        border-top-right-radius: 4px;
+
+        & svg {
+          color: white;
+          font-size: 1rem;
+        }
+      }
+    }
+    .active {
+      border: 1px solid $danger;
+      color: $danger;
+    }
+  }
+
+  .dropdown {
+    border-radius: 0.2rem;
+    border: 1px solid $border-color-1;
+  }
+
+  .dropdown-title {
+    padding: 1.5rem 2rem;
+  }
+}

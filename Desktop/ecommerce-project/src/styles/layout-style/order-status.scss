@@ -1,0 +1,264 @@
+.order__status {
+  &-body {
+    margin-top: 2rem;
+  }
+
+  & ul {
+    list-style: none;
+  }
+  &-header {
+    @include flex-center;
+    flex-direction: column;
+
+    & svg {
+      font-size: 3rem;
+      color: $green;
+      margin-bottom: 2rem;
+      @include responsive(lg-screen) {
+        font-size: 5rem;
+      }
+    }
+
+    & h3 {
+      @include style-text(500, 1.8rem, 2.8rem, $text-color);
+      margin-bottom: 1.2rem;
+
+      @include responsive(lg-screen) {
+        font-size: 2rem;
+        font-weight: 3rem;
+      }
+    }
+
+    & p {
+      @include style-text(700, 1.4rem, 2.4rem, $text-color);
+
+      @include responsive(lg-screen) {
+        font-size: 1.6rem;
+        font-weight: 2.6rem;
+      }
+      & span {
+        color: $green;
+      }
+    }
+  }
+
+  &-body {
+    &-heading {
+      margin-bottom: 1rem;
+      @include style-text(500, 1.6rem, 3.6rem, $text-color);
+    }
+
+    .order__status-summary {
+      .order__status-summary-list-wrapper {
+        grid-gap: 2rem;
+        @include responsive(md-screen) {
+          grid-gap: 3rem;
+        }
+      }
+
+      &-list {
+        &-item {
+          display: flex;
+          align-items: baseline;
+          margin-bottom: 1rem;
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          & h3 {
+            @include style-text(500, 1.3rem, 2rem, $gray);
+            width: 30%;
+            margin-right: 2rem;
+          }
+
+          & p {
+            width: 70%;
+            @include style-text(500, 1.3rem, 2.3rem, $text-color);
+            @include responsive(lg-screen) {
+              font-size: 1.4rem;
+              line-height: 2.4rem;
+            }
+          }
+        }
+      }
+    }
+
+    grid-gap: 3rem;
+
+    .order__status-detail {
+      margin-top: 2rem;
+      grid-column: 1 / 3;
+
+      @include responsive(lg-screen) {
+        margin-top: 4rem;
+      }
+
+      &-price {
+        @include responsive(md-screen) {
+          min-width: 100px;
+        }
+      }
+
+      &-name {
+        width: 200px;
+        @include responsive(md-screen) {
+          width: unset;
+        }
+      }
+    }
+  }
+}
+
+.order__history-table-detail {
+  margin-bottom: 1rem;
+  display: flex;
+  @include responsive(md-screen) {
+    display: block;
+  }
+
+  &-item {
+    line-height: 2.4rem;
+    @include flex(space-between, center);
+    padding: 1rem;
+    border-bottom: 1px solid $border-color-1;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+    @include responsive(md-screen) {
+      border-right: 1px solid $border-color-1;
+      padding: 2rem 1rem;
+      border-bottom: 0;
+    }
+
+    &-heading {
+      font-weight: 600;
+      margin-right: 1rem;
+      width: 20%;
+      display: block;
+      @include responsive(md-screen) {
+        display: none;
+      }
+    }
+
+    &-title {
+      @include limit-line-text(3);
+      width: 80%;
+      @include responsive(md-screen) {
+        width: 100%;
+      }
+    }
+
+    & .image-container {
+      width: 50px;
+      height: 50px;
+      display: block;
+
+      & span {
+        height: 100% !important;
+      }
+    }
+  }
+
+  &-image {
+    display: none;
+    padding: 0;
+    @include responsive(md-screen) {
+      width: 70px;
+      @include flex-center;
+    }
+  }
+
+  &-name {
+    width: 100%;
+    @include responsive(md-screen) {
+      width: 60%;
+    }
+  }
+
+  &-qty {
+    width: 100%;
+    @include responsive(md-screen) {
+      width: 10%;
+    }
+  }
+
+  &-unit {
+    width: 100%;
+    @include responsive(md-screen) {
+      width: 10%;
+    }
+  }
+
+  &-price {
+    width: 100%;
+    @include responsive(md-screen) {
+      width: 16%;
+    }
+  }
+
+  &-order {
+    width: 100%;
+    @include responsive(md-screen) {
+      width: 4%;
+      border-left: 1px solid $border-color-1;
+    }
+
+    & .image-container {
+      @include responsive(md-screen) {
+        display: none;
+      }
+    }
+  }
+
+  &-heading {
+    display: none;
+    @include style-text(600, 1.4rem, 1.4rem, $text-color);
+    @include responsive(md-screen) {
+      display: flex;
+      border-block: 1px solid $border-color-1;
+    }
+  }
+
+  &-body {
+    margin-bottom: -2rem;
+    @include style-text(500, 1.3rem, 2.3rem, $text-color);
+    width: 100%;
+    @include responsive(md-screen) {
+      border-bottom: 1px solid $border-color-1;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+      margin-bottom: 0;
+    }
+
+    &-item {
+      display: block;
+      margin-bottom: 2rem;
+      border: 1px solid $border-color-1;
+
+      @include responsive(md-screen) {
+        display: flex;
+        border: none;
+        border-bottom: 1px solid $border-color-1;
+        margin-bottom: 0;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.order__confirm {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+
+  &-link {
+    width: fit-content;
+    margin-top: 2rem;
+    margin-right: auto;
+  }
+}

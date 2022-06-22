@@ -1,0 +1,241 @@
+.cart__page__item {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  background-color: $white;
+
+  .cart__item-check {
+    display: none;
+    @include responsive(lg-screen) {
+      display: flex;
+      width: 5%;
+      align-items: center;
+    }
+  }
+
+  .cart__item-img {
+    @include flex-center;
+    width: 20%;
+    margin-right: 2rem;
+
+    & .image-container {
+      position: relative;
+      aspect-ratio: 1;
+      width: 80px;
+      height: 80px;
+
+      .cart__item-delete-btn {
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        color: $danger;
+        display: block;
+        z-index: 1;
+        width: 20px;
+        height: 20px;
+        background-color: $white;
+        border-radius: 50%;
+        border: 1px solid $border-color-1;
+
+        @include responsive(lg-screen) {
+          display: none;
+        }
+
+        & svg {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    @include responsive(lg-screen) {
+      width: 10%;
+      position: static;
+    }
+  }
+
+  .cart__item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    width: 80%;
+    @include responsive(md-screen) {
+      width: 70%;
+    }
+
+    &-item {
+      @include flex(flex-start, center);
+      width: 100%;
+
+      &-title {
+        display: block;
+        @include style-text(500, 1.3rem, 2.3rem, $text-color);
+        width: 80px;
+        margin-right: 3rem;
+        display: none;
+
+        @include responsive(sm-screen) {
+          display: block;
+        }
+        @include responsive(lg-screen) {
+          display: none;
+        }
+      }
+    }
+
+    @include responsive(lg-screen) {
+      width: 85%;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &-name {
+      padding-bottom: 0.6rem;
+      width: 100%;
+
+      @include responsive(sm-screen) {
+        padding-bottom: 1rem;
+      }
+
+      @include responsive(md-screen) {
+        padding-bottom: 1.4rem;
+      }
+
+      @include flex(space-between, center);
+
+      @include responsive(lg-screen) {
+        width: 40%;
+        margin-right: 3rem;
+        padding-bottom: 0;
+      }
+
+      &-wrapper {
+        flex: 1;
+
+        & .cart__item-info-name-type {
+          pointer-events: none;
+          @include style-text(500, 1.1rem, 2rem, $gray);
+
+          @include responsive(sm-screen) {
+            font-size: 1.2rem;
+          }
+        }
+
+        & .cart__item-info-name-title {
+          margin-right: 2rem;
+          @include limit-line-text(2);
+          @include style-text(500, 1.3rem, 2rem, $text-color);
+          flex: 1;
+
+          & span {
+            margin-left: 0.6rem;
+          }
+
+          &:hover {
+            @include responsive(lg-screen) {
+              color: $primary-color;
+            }
+          }
+
+          @include responsive(lg-screen) {
+            margin-right: 0;
+            @include limit-line-text(3);
+            transition: all 0.2s;
+          }
+        }
+      }
+
+      .input__checkbox {
+        display: block;
+        @include responsive(lg-screen) {
+          display: none;
+        }
+      }
+    }
+
+    &-price {
+      padding-bottom: 0.6rem;
+
+      @include responsive(sm-screen) {
+        padding-block: 1rem;
+      }
+      @include responsive(md-screen) {
+        padding-block: 1.4rem;
+      }
+
+      @include responsive(lg-screen) {
+        width: 15%;
+        padding-block: 0rem;
+        margin-right: 1rem;
+      }
+
+      & .info-price-price {
+        @include style-text(600, 1.3rem, 1.3rem, $text-color);
+        display: none;
+        @include responsive(md-screen) {
+          display: flex;
+        }
+
+        &-mobile {
+          display: block;
+          @include responsive(md-screen) {
+            display: none;
+          }
+          font-weight: 600;
+          color: $danger;
+        }
+      }
+    }
+
+    &-quantity {
+      padding-block: 0.6rem;
+
+      @include responsive(sm-screen) {
+        padding-block: 1rem;
+      }
+      @include responsive(md-screen) {
+        padding-block: 1.4rem;
+      }
+      @include responsive(lg-screen) {
+        padding-block: 0;
+        width: 20%;
+        margin-right: 1rem;
+      }
+    }
+
+    &-subtotal {
+      display: none;
+      @include responsive(md-screen) {
+        display: flex;
+      }
+      padding-top: 1rem;
+      @include responsive(lg-screen) {
+        width: 15%;
+        margin-right: 1rem;
+        padding-top: 0;
+      }
+
+      & .info-subtotal-price {
+        @include style-text(600, 1.3rem, 1.3rem, $text-color);
+      }
+    }
+
+    &-btn {
+      display: none;
+      @include responsive(lg-screen) {
+        width: 5%;
+        display: block;
+      }
+
+      & button {
+        padding: 0.2rem;
+      }
+
+      & svg {
+        color: $danger;
+        pointer-events: none;
+        font-size: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.shipping__detail {
+  &-list {
+    list-style: none;
+    grid-gap: 0.8rem;
+
+    @include responsive(lg-screen) {
+      grid-gap: 2rem;
+    }
+
+    &-item {
+      border-radius: 2px;
+      border: 1px solid $border-color-1;
+      padding: 1rem;
+      position: relative;
+
+      .shipping__detail-wrapper-child {
+        width: calc(100% + 2px);
+        position: absolute;
+        border: 1px solid $border-color-1;
+        max-height: 0;
+        transition: all 0.2s;
+        height: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        top: calc(100% + 1px);
+        transition: all 0.2s;
+
+        &-expand {
+          max-height: 100vh;
+          padding: 2rem 1rem;
+          background-color: $white;
+          @include style-text(500, 1.3rem, 2rem, $text-color);
+
+          & p:last-child {
+            text-align: right;
+          }
+        }
+      }
+
+      &-active {
+        transition: all 0.2s;
+        border: 1px solid $primary-color;
+      }
+
+      &-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .shipping__detail-wrapper {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        position: relative;
+
+        &-image {
+          margin-right: 1.4rem;
+          @include flex-center;
+
+          & img {
+            width: 40px;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+
+        &-content {
+          flex: 1;
+          margin-right: 1.4rem;
+
+          & h3 {
+            @include style-text(500, 1.3rem, 2rem, $text-color);
+            margin-bottom: 0.4rem;
+          }
+          & p {
+            @include style-text(500, 1.3rem, 2rem, $text-color);
+          }
+        }
+
+        &-option {
+          @include flex-center;
+          flex-direction: column;
+
+          & button {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            @include flex-center;
+
+            & svg {
+              font-size: 1.8rem;
+              color: $gray;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-input {
+    margin-top: 2rem;
+    display: flex;
+
+    & input {
+      height: 40px;
+      width: 100%;
+      border: 1px solid $border-color-1;
+      border-radius: 0.2rem;
+      padding-inline: 1.2rem;
+      @include style-text(500, 1.3rem, 2.3rem, $text-color);
+      background-color: #fff;
+      margin-left: auto;
+      max-width: 400px;
+      width: 100%;
+    }
+  }
+
+  &-disabled {
+    opacity: 0.5;
+  }
+}

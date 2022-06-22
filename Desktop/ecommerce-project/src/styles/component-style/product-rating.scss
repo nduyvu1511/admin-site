@@ -1,0 +1,425 @@
+.product__rating {
+  &-header {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $border-color-1;
+
+    & h3 {
+      @include style-text(500, 1.5rem, 2.5rem, $home-heading-color);
+      margin-bottom: 2rem;
+
+      @include responsive(sm-screen) {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+      }
+
+      @include responsive(lg-screen) {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+      }
+    }
+
+    &-summary {
+      display: flex;
+      flex-direction: column;
+
+      @include responsive(lg-screen) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.4rem;
+        @include responsive(sm-screen) {
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: 0;
+        }
+
+        & .product__rating-header-info {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1.4rem;
+          @include responsive(sm-screen) {
+            margin-bottom: 0;
+          }
+        }
+
+        & .product__rating-summary-count {
+          font-size: 2.2rem;
+          font-weight: 700;
+          margin-right: 1.4rem;
+          // font-family: $second-font;
+          // @include responsive(lg-screen) {
+          font-size: 3.2rem;
+          // }
+        }
+
+        & .product__rating-header-desc {
+          margin-top: 0.2rem;
+          @include style-text(500, 1.3rem, 1.8rem, $gray);
+        }
+
+        & .star-icon {
+          font-size: 2.4rem;
+        }
+      }
+
+      & .product__rating-header-summary-separate {
+        margin-inline: 2rem;
+        height: 70px;
+        width: 1px;
+        background-color: $border-color-2;
+        display: none;
+        @include responsive(sm-screen) {
+          display: block;
+        }
+      }
+
+      &-statistical {
+      }
+
+      & .product__rating-header-summary-filters {
+        margin-top: 1rem;
+        @include responsive(lg-screen) {
+          margin-top: 0;
+        }
+
+        & .rating__filter-list {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          list-style: none;
+
+          &-item {
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1.4rem;
+            border: 1px solid $border-color-2;
+            border-radius: 25px;
+            @include style-text(500, 1.4rem, 1.6rem, $text-color);
+            background-color: $bg-gray;
+            cursor: pointer;
+
+            &:first-child {
+              margin-left: 0;
+            }
+
+            & svg {
+              font-size: 1.8rem;
+              fill: $text-color;
+              margin-left: 0.4rem;
+            }
+
+            &-active {
+              background-color: $primary-color-opacity;
+              color: $primary-color;
+
+              & svg {
+                fill: $yellow;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-count {
+      @include style-text(500, 1.4rem, 2.4rem, $text-color-opacity);
+    }
+
+    &-add {
+      margin-top: 2rem;
+    }
+
+    &-form-wrapper {
+      margin-top: 2rem;
+    }
+
+    &-tags {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+
+      & .tag {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &-form {
+      margin-top: 2rem;
+
+      & textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid $border-color-1;
+        border-radius: 0.4rem;
+        margin-bottom: 2rem;
+        @include style-text(400, 1.5rem, 2.5rem, $text-color);
+        resize: vertical;
+      }
+
+      & button {
+      }
+    }
+
+    &-attachment {
+      margin-top: 1rem;
+
+      & label {
+        padding: 0.6rem 1.2rem;
+        width: fit-content;
+        user-select: none;
+
+        & svg {
+          margin-right: 0.3rem;
+        }
+      }
+
+      &-image {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+
+        &-item {
+          margin-right: 1rem;
+          margin-bottom: 1rem;
+          width: 70px;
+          height: 70px;
+          position: relative;
+
+          & span {
+            position: absolute;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            @include flex-center;
+
+            & svg {
+              font-size: 1.4rem;
+              color: white;
+            }
+          }
+
+          & span:first-child {
+            top: 0;
+            right: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          &-loading {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+
+            & svg {
+              font-size: 3rem;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .rating__item {
+    display: flex;
+    padding-block: 1rem;
+
+    &-avatar {
+      width: 40px;
+      margin-right: 2rem;
+
+      & .image-container {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+    }
+
+    &-content {
+      flex: 1;
+
+      &-name {
+        margin-bottom: 0.6rem;
+        @include style-text(500, 1.4rem, 2.4rem, $text-color);
+      }
+
+      &-rate {
+        margin-bottom: 0.6rem;
+        display: flex;
+        align-items: center;
+
+        & .rating__item-content-time {
+          @include style-text(500, 1.2rem, 2.2rem, $gray);
+          margin-left: 1rem;
+        }
+
+        & .star-icon {
+          font-size: 1.6rem;
+        }
+      }
+
+      &-desc {
+        @include style-text(500, 1.3rem, 2.3rem, $text-color);
+
+        & p,
+        span {
+          font-family: $main-font !important;
+        }
+
+        & span {
+          font-size: 1.3rem !important;
+          line-height: 2.3rem !important;
+        }
+      }
+
+      &-tags {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+
+        & .tag {
+          margin-bottom: 0.4rem;
+          margin-right: 0.6rem;
+        }
+      }
+
+      &-image {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1.6rem;
+
+        &-item {
+          margin-right: 1rem;
+          margin-bottom: 1rem;
+
+          cursor: zoom-in;
+
+          & .image-container {
+            width: 80px;
+            height: 80px;
+
+            @include responsive(md-screen) {
+              width: 120px;
+              height: 120px;
+            }
+          }
+        }
+      }
+    }
+
+    &-options {
+      margin-left: 1rem;
+      width: 30px;
+      position: relative;
+
+      & button {
+        & svg {
+          font-size: 1.6rem;
+          color: $text-color;
+        }
+      }
+
+      &-child {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        border-radius: 0.4rem;
+        background-color: #fff;
+        border: 1px solid $border-color-2;
+        box-shadow: $box-shadow-1;
+
+        & svg:first-child {
+          fill: $danger;
+        }
+
+        & p {
+          white-space: nowrap;
+          padding: 2rem 2rem 2rem 1.4rem;
+          cursor: pointer;
+          @include flex(flex-start, center);
+          @include style-text(500, 1.3rem, 1.3rem, $text-color);
+
+          & svg {
+            font-size: 1.4rem;
+            margin-right: 0.8rem;
+          }
+
+          &:hover {
+            background-color: $gray-color-opacity;
+          }
+        }
+
+        & p:last-child {
+          & svg {
+            color: $info;
+            fill: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rating-no-rating {
+  @include flex-center;
+  flex-direction: column;
+  padding-block: 2rem;
+
+  & svg {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: $text-color-opacity;
+
+    @include responsive(lg-screen) {
+      font-size: 5rem;
+    }
+  }
+
+  & p {
+    @include style-text(400, 1.4rem, 2.4rem, $text-color);
+    @include responsive(lg-screen) {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+    }
+  }
+}
+
+.rating__count {
+  display: flex;
+  align-items: center;
+
+  .rating__count-wrapper {
+    margin-left: 0.8rem;
+    position: relative;
+    height: 7px;
+    border-radius: 4px;
+    width: 140px;
+    background-color: #e7e5e5;
+  }
+
+  & .rating__count-value {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #808089;
+    border-radius: 4px;
+  }
+
+  &-count {
+    margin-left: 0.8rem;
+    @include style-text(500, 1.2rem, 1.4rem, $gray);
+  }
+}

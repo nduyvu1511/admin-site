@@ -1,0 +1,126 @@
+.checkout-container {
+  & .checkout-heading {
+    display: flex;
+    align-items: center;
+    @include style-text(500, 1.6rem, 2.4rem, $primary-color);
+    margin-bottom: 2rem;
+
+    @include responsive(md-screen) {
+      font-size: 1.8rem;
+      font-weight: 2.6rem;
+    }
+
+    & svg {
+      margin-right: 0.5rem;
+      font-size: 2rem;
+    }
+  }
+
+  & .checkout-item {
+    padding: 2rem 1rem;
+    @include responsive(sm-screen) {
+      padding-inline: 2rem;
+    }
+  }
+
+  & .checkout__address {
+    background-color: $white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    &-top {
+      & .checkout__address-selected {
+        margin-top: 1rem;
+
+        & .address__order__item {
+          margin-right: 7rem;
+        }
+      }
+    }
+
+    &-header {
+      display: flex;
+      flex-direction: column;
+
+      @include responsive(sm-screen) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      & .checkout-heading {
+        margin-bottom: 1rem;
+        @include responsive(md-screen) {
+          margin-bottom: 2rem;
+        }
+      }
+
+      &-actions {
+        display: flex;
+        margin-bottom: 1rem;
+
+        @include responsive(md-screen) {
+          margin-bottom: 0;
+        }
+
+        & .btn-primary-outline {
+          border-radius: 0.2rem;
+          padding: 0.4rem 0.8rem;
+          height: fit-content;
+
+          & svg {
+            font-size: 1.4rem;
+          }
+        }
+
+        & button {
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    &-selected {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      & button {
+        position: absolute;
+        right: 0;
+
+        white-space: nowrap;
+        font-family: $main-font;
+        @include style-text(600, 1.3rem, 1.8rem, $primary-color);
+      }
+    }
+
+    &-list {
+      margin-block: 2rem;
+      & .address__order__item {
+        margin-bottom: 2rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &-back-btn {
+      margin-top: 2rem;
+      border-radius: 0.2rem;
+      padding: 0.4rem 1rem;
+    }
+
+    &--no-address {
+      @include style-text(500, 1.4rem, 2.2rem, $danger);
+    }
+  }
+
+  & .shipping__detail {
+    background-color: $white;
+    margin-bottom: 2rem;
+  }
+
+  & .payment__order {
+    background-color: $white;
+  }
+}

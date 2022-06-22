@@ -1,0 +1,103 @@
+.rating__form {
+  &-container {
+    // margin-top: 2rem;
+  }
+
+  &-tags {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    & .tag {
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-form {
+    margin-top: 2rem;
+
+    & textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid $border-color-1;
+      border-radius: 0.4rem;
+      @include style-text(400, 1.5rem, 2.5rem, $text-color);
+      resize: vertical;
+    }
+
+    & button {
+      margin-top: 2rem;
+    }
+  }
+
+  &-attachment {
+    margin-top: 1rem;
+
+    & label {
+      padding: 0.6rem 1.2rem;
+      width: fit-content;
+      user-select: none;
+
+      & svg {
+        margin-right: 0.3rem;
+      }
+    }
+
+    &-image {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+
+      &-item {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        width: 70px;
+        height: 70px;
+        position: relative;
+
+        & span {
+          position: absolute;
+          background-color: rgba($color: #000000, $alpha: 0.3);
+          @include flex-center;
+
+          & svg {
+            font-size: 1.4rem;
+            color: white;
+          }
+        }
+
+        &-delete {
+          top: 0;
+          right: 0;
+          width: 1.5rem;
+          height: 1.5rem;
+          z-index: 1;
+        }
+
+        & .image-container {
+          height: 100%;
+        }
+
+        &-loading {
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+
+          & svg {
+            font-size: 3rem;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    &-danger-btn {
+      margin-right: 1rem;
+      background-color: $danger;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.category__item {
+  user-select: none;
+  height: 100%;
+  list-style: none;
+
+  &-wrapper {
+    @include flex-center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-link {
+    color: $text-color;
+
+    &-name {
+      flex: 1;
+      @include limit-line-text(2);
+      @include style-text(600, 1.2rem, 1.8rem, $text-color);
+      margin-top: 1rem;
+      text-align: center;
+
+      @include responsive(md-screen) {
+        font-size: 1.3rem;
+        line-height: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  & .image-container {
+    width: 60px;
+    height: 60px;
+
+    @include responsive(lg-screen) {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}

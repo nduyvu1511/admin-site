@@ -1,0 +1,130 @@
+.otp-container {
+  margin-inline: auto;
+  border-radius: 4px;
+  max-width: 400px;
+  padding: 3rem 1rem;
+  border: 1px solid $border-color-1;
+
+  @include responsive(sm-screen) {
+    padding: 4rem 2rem;
+  }
+
+  @include responsive(lg-screen) {
+    padding: 2rem 0;
+    border: 0;
+  }
+
+  .otp__header {
+    @include flex(flex-start, center);
+
+    &-btn {
+      display: flex;
+      margin-right: 1.6rem;
+      & svg {
+        color: $text-color;
+        font-size: 2.4rem;
+        @include responsive(sm-screen) {
+          font-size: 3rem;
+        }
+      }
+    }
+    &-heading {
+      text-align: center;
+      width: 100%;
+      @include style-text(500, 1.6rem, 3.2rem, $text-color);
+      @include responsive(sm-screen) {
+        font-size: 2rem;
+        font-weight: 4rem;
+      }
+    }
+  }
+
+  .otp-message {
+    margin-bottom: 4rem;
+    @include style-text(500, 1.4rem, 2.4rem, $text-color);
+  }
+
+  .otp__form {
+    margin: 0 auto;
+    .form-control {
+      .form-item {
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+        @include flex-center;
+        flex-direction: column;
+
+        & .input-otp {
+          display: flex;
+          justify-content: center;
+          & > div {
+            max-width: 300px;
+            text-align: center;
+            justify-content: center;
+            & > div {
+              flex: 1;
+
+              & input {
+                width: 100% !important;
+                height: 40px;
+                margin-right: 1rem;
+                border: 1px solid rgba($color: #000000, $alpha: 0.2) !important;
+                font-family: $main-font;
+                @include style-text(600, 1.6rem, 1.6rem, $text-color);
+              }
+            }
+          }
+        }
+
+        & label[for="otpInput"] {
+          display: inline-block;
+          margin-bottom: 4rem;
+          @include style-text(400, 1.4rem, 2.8rem, $text-color);
+          text-align: center;
+
+          & b {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $heading-color;
+          }
+        }
+
+        &-wrapper {
+          position: relative;
+          height: 45px;
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      & .otp__resend {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include style-text(500, 1.3rem, 1.8rem, $text-color);
+
+        &-title {
+          margin-bottom: 0.8rem;
+        }
+
+        &-btn {
+          padding: 0;
+          background-color: transparent;
+          color: $primary-color;
+          border: 0;
+          font-size: 1.3rem;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        &-countdown {
+          color: $gray;
+        }
+      }
+    }
+
+    .otp-btn-login {
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+}

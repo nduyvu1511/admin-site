@@ -1,0 +1,250 @@
+.product__intro {
+  @include responsive(lg-screen) {
+    padding-inline: 2rem;
+  }
+
+  &-title {
+    @include style-text(600, 1.4rem, 2.2rem, $home-heading-color);
+    margin-top: 1.5rem;
+    @include responsive(sm-screen) {
+      margin-top: 0;
+    }
+    @include limit-line-text(2);
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  & .modal__product-sub {
+    display: flex;
+    align-items: center;
+
+    &-item {
+      @include style-text(500, 1.3rem, 1.3rem, $text-color);
+      padding-inline: 0.6rem;
+      border-right: 1px solid $border-color-1;
+
+      @media screen and (min-width: 350px) {
+        padding-inline: 1rem;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        border-right: 0;
+      }
+    }
+  }
+
+  .product__intro-price-sm {
+    margin-top: 1.5rem;
+    & .product__intro-price-old {
+      @include style-text(600, 1.4rem, 1.4rem, $text-color);
+    }
+
+    & .product__intro-price-current {
+      @include style-text(600, 1.6rem, 1.4rem, $text-color);
+    }
+  }
+
+  &-status-sm {
+    margin: 1rem 0;
+    width: fit-content;
+    border-radius: 25px;
+  }
+
+  &-shop {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 3rem;
+
+    @media screen and(min-width: 400px) {
+      flex-direction: row;
+    }
+
+    &-btn {
+      @include button($danger, $white, 1.4rem, 500, 1.4rem, 1.2rem);
+      max-width: 150px;
+      width: 100%;
+      margin-left: 0;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      margin-left: 1.4rem;
+      height: 100%;
+
+      @media screen and(min-width: 400px) {
+        max-width: 200px;
+      }
+
+      & svg {
+        font-size: 1.6rem;
+        margin-right: 0.6rem;
+      }
+    }
+
+    &-btn-sm {
+      width: fit-content;
+      padding: 0.9rem 2rem;
+      margin-left: 0;
+    }
+
+    &-chat-btn {
+      display: none;
+    }
+  }
+
+  &-quantity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    & .input__quantity {
+      width: fit-content;
+    }
+
+    & p {
+      font-weight: 500;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      color: #3e445a;
+      margin-right: 2rem;
+      width: 100px;
+      text-transform: capitalize;
+    }
+  }
+
+  &-sub {
+    display: flex;
+    align-items: center;
+
+    &-item {
+      @include flex-center;
+      border: none;
+      width: 35px;
+      height: 35px;
+      background-color: $gray-color;
+      border-radius: 4px;
+      cursor: pointer;
+
+      & svg {
+        font-size: 1.8rem;
+        fill: $gray;
+      }
+
+      & + & {
+        margin-left: 0.5rem;
+      }
+
+      &:first-child {
+      }
+    }
+  }
+
+  & .product__intro-item {
+    opacity: 0.8;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+
+    &-sub {
+      opacity: 1;
+      font-weight: 500;
+    }
+  }
+
+  .product__intro-variation-wrapper {
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+    @include responsive(lg-screen) {
+      margin-bottom: 1rem;
+      margin-top: 3rem;
+    }
+  }
+
+  & .product__countdown {
+    margin-left: 2rem;
+    margin-top: 0;
+
+    &-remains {
+      display: none;
+    }
+  }
+
+  & .variation__dropdown {
+    & .dropdown {
+      width: fit-content;
+    }
+    & .dropdown__list {
+      width: 100%;
+      overflow-x: hidden;
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: center;
+
+    &-separate {
+      height: 25px;
+      margin-inline: 1.5rem;
+      border-right: 1px solid $border-color-2;
+    }
+  }
+}
+
+.product__intro-horizontal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product__intro-price {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1.6rem;
+  font-family: $second-font;
+
+  &-wrapper {
+    @include flex(flex-start, baseline);
+  }
+
+  @include responsive(sm-screen) {
+    margin-bottom: 2rem;
+  }
+
+  &-unit {
+    margin-left: 0.6rem;
+    @include style-text(500, 1.4rem, 1.8rem, $text-color);
+  }
+
+  &-old {
+    text-decoration: line-through;
+    margin-right: 2rem;
+    @include style-text(600, 1.8rem, 2.8rem, $text-color);
+    opacity: 0.4;
+  }
+
+  &-current {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    @include responsive(sm-screen) {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+    @include responsive(lg-screen) {
+      font-size: 2.2rem;
+      line-height: 3rem;
+    }
+    @include responsive(xl-screen) {
+      font-size: 2.6rem;
+      line-height: 3.4rem;
+    }
+    font-weight: 600;
+    color: $red;
+  }
+}

@@ -1,0 +1,154 @@
+.product__review {
+  & .form-item-inline {
+    flex-direction: column;
+  }
+
+  & .form-item-text-error {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .comment__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1.2rem;
+
+    &-item {
+      display: flex;
+      padding-block: 0.5rem;
+      position: relative;
+
+      & .image-container {
+        width: 45px;
+        height: 45px;
+        margin-right: 1rem;
+        @include responsive(sm-screen) {
+          margin-right: 2rem;
+        }
+        & .image {
+          border-radius: 50%;
+        }
+      }
+
+      &-content {
+        flex: 1;
+
+        &-rating {
+          margin-bottom: 1rem;
+        }
+
+        &-info {
+          display: flex;
+          align-items: baseline;
+          margin-bottom: 0.6rem;
+          flex-direction: column;
+          @include responsive(sm-screen) {
+            flex-direction: row;
+          }
+
+          & span:first-child {
+            margin-bottom: 1rem;
+            @include responsive(sm-screen) {
+              margin-bottom: 0;
+            }
+          }
+
+          & span:last-child {
+            @include style-text(500, 1.2rem, 1.6rem, $gray);
+          }
+
+          &-author {
+            @include style-text(600, 1.5rem, 1.5rem, $text-color);
+            padding-right: 0.5rem;
+          }
+
+          & svg {
+            position: relative;
+            top: 0.3rem;
+            fill: $text-color;
+          }
+
+          &-date {
+            padding-left: 0.3rem;
+            @include style-text(400, 1.3rem, 1.3rem, $text-color);
+          }
+        }
+
+        &-comment {
+          @include style-text(500, 1.3rem, 2.3rem, $text-color);
+          @include responsive(sm-screen) {
+            font-size: 1.4rem;
+            line-height: 2.4rem;
+          }
+        }
+      }
+
+      &-delete {
+        height: fit-content;
+        padding: 1rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        & svg {
+          fill: $danger;
+          font-size: 1.3rem;
+          @include responsive(lg-screen) {
+            font-size: 1.6rem;
+          }
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  &-form {
+    margin-bottom: 2rem;
+
+    &-heading {
+      @include flex(flex-start, center);
+      @include style-text(500, 1.4rem, 2.4rem, $text-color);
+      cursor: pointer;
+      width: fit-content;
+
+      @include responsive(lg-screen) {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+      }
+
+      & svg {
+        margin-left: 0.6rem;
+        font-size: 1.6rem;
+      }
+    }
+
+    &-wrapper {
+      transition: all 0.2s linear;
+      overflow: hidden;
+      margin-top: 1rem;
+
+      @include responsive(lg-screen) {
+        margin-bottom: 2rem;
+      }
+
+      & .form-item-inline {
+        margin-bottom: 1rem;
+      }
+    }
+
+    & textarea {
+      border-radius: 0.2rem;
+      font-size: 1.3rem;
+      @include responsive(sm-screen) {
+        font-size: 1.4rem;
+      }
+    }
+
+    & button {
+      padding-block: 0.8rem;
+      padding-inline: 1.6rem;
+      border-radius: 0.2rem;
+      text-transform: uppercase;
+    }
+  }
+}

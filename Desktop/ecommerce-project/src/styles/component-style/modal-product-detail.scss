@@ -1,0 +1,77 @@
+.modal__product {
+  position: relative;
+
+  &-btn-close {
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    @include responsive(lg-screen) {
+      right: -1rem;
+    }
+
+    & svg {
+      font-size: 3rem;
+      fill: #c2c2d3;
+      @include responsive(md-screen) {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  &-header {
+    margin-bottom: 2.6rem;
+    border-bottom: 1px solid $border-color-2;
+  }
+
+  &-title {
+    @include style-text(500, 1.4rem, 2.2rem, $text-color);
+    margin-right: 4rem;
+    margin-bottom: 1.6rem;
+
+    @include responsive(sm-screen) {
+      font-size: 1.5rem;
+      line-height: 2.3rem;
+    }
+
+    @include responsive(md-screen) {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin-right: 5rem;
+    }
+
+    @include responsive(lg-screen) {
+      margin-right: 6rem;
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+    }
+
+    @include responsive(xl-screen) {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+
+    @include responsive(lg-screen) {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0.8rem;
+    }
+  }
+
+  & .modal__product-sub {
+    margin-bottom: 1rem;
+    @include responsive(lg-screen) {
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  & .product__intro-shop-btn {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,132 @@
+.product__img-show {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 660px;
+
+  @include responsive(xl-screen) {
+    margin-bottom: 0;
+  }
+
+  &-container {
+    overflow: hidden;
+    position: relative;
+
+    & .swiper {
+      max-height: 500px;
+    }
+
+    & img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.3rem;
+    }
+
+    & .swiper-slide {
+      & img {
+        height: 100%;
+        aspect-ratio: 1;
+      }
+    }
+
+    &-modal {
+      & .swiper {
+        max-height: 410px;
+      }
+    }
+
+    & .product-status {
+      font-family: $second-font;
+      font-weight: 700;
+      display: inline-block;
+      font-size: 1.1rem;
+      padding: 7px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+      z-index: 2;
+
+      @include responsive(lg-screen) {
+        right: 1rem;
+        top: 1rem;
+      }
+
+      &--out-of-stock {
+        background-color: $danger;
+        color: $white;
+      }
+
+      &--in-stock {
+        background-color: $green;
+        font-family: $second-font;
+      }
+    }
+  }
+
+  &-banner {
+    display: block;
+    height: auto;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  &-sub {
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    @include hide-scrollbar;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-child {
+      display: inline-block;
+      border: 1px solid $border-color-1;
+      padding: 2px;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+
+      & .image-container {
+        height: 100%;
+      }
+
+      & + & {
+        margin-left: 1rem;
+      }
+    }
+    &-child.active {
+      border-color: $primary-color;
+    }
+
+    &-item {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 50px;
+    padding: 0.6rem 0.8rem;
+    border-radius: 4px;
+    @include style-text(600, 1.4rem, 1.4rem, $white);
+    text-align: center;
+    background-color: #2bbef9;
+    font-family: $second-font;
+  }
+}

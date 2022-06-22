@@ -1,0 +1,256 @@
+.footer {
+  padding-bottom: 2rem;
+  @include responsive(lg-screen) {
+    margin-bottom: 0;
+  }
+
+  &__top-wrapper {
+    background-color: #f7f7f7;
+  }
+
+  &__top {
+    @include flex(start, center);
+    padding-block: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    @include responsive(lg-screen) {
+      flex-direction: row;
+    }
+
+    & svg {
+      position: relative;
+      font-size: 7rem;
+      color: $yellow;
+      margin-bottom: 1rem;
+      @include responsive(lg-screen) {
+        margin-bottom: 0;
+        margin-right: 2rem;
+      }
+    }
+
+    &-text {
+      @include style-text(500, 1.3rem, 2.3rem, $text-color);
+      text-align: center;
+      margin-bottom: 1rem;
+
+      @include responsive(lg-screen) {
+        text-align: left;
+        margin-right: 4rem;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+        margin-bottom: 0;
+      }
+
+      & p:first-child {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+
+        @include responsive(md-screen) {
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+        }
+      }
+
+      & p:last-child {
+        font-weight: 400;
+      }
+    }
+
+    &-input {
+      display: flex;
+      align-items: center;
+      height: 40px;
+
+      & input {
+        height: 100%;
+        border: 1px solid $border-color-1;
+        padding-inline: 1.2rem;
+        margin-right: 0.4rem;
+        @include style-text(500, 1.4rem, 1.4rem, $text-color);
+        border-radius: 0.4rem;
+      }
+
+      & button {
+        height: 100%;
+      }
+    }
+  }
+
+  &__body {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    display: grid;
+    &-list {
+      grid-gap: 2rem;
+      list-style: none;
+
+      &-item {
+        margin-bottom: 1.2rem;
+        &-heading {
+          text-transform: uppercase;
+          margin-bottom: 2rem;
+          @include style-text(600, 1.4rem, 2.2rem, $text-color);
+        }
+
+        &-title {
+          @include style-text(500, 1.3rem, 2rem, $text-color);
+          margin-bottom: 1rem;
+          display: block;
+        }
+
+        & img {
+          max-width: 180px;
+          width: 100%;
+        }
+      }
+    }
+
+    .image-wrapper {
+      display: flex;
+      align-items: center;
+      margin: 2rem 0;
+      flex-direction: column;
+      @include responsive(lg-screen) {
+        flex-direction: row;
+      }
+
+      &-item {
+        width: 100px;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+
+        & span {
+          position: static !important;
+
+          & img {
+            position: static !important;
+            width: 100% !important;
+            height: auto !important;
+          }
+        }
+      }
+    }
+
+    & .footer__main-contact-right {
+      &-heading {
+        margin-top: 3rem;
+      }
+    }
+
+    .footer__body-icon-wrapper {
+      display: flex;
+      margin-top: 2rem;
+      @include responsive(lg-screen) {
+        margin-left: 2rem;
+        margin-top: 0;
+      }
+
+      & a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid $border-color-1;
+        @include flex-center;
+        margin-right: 0.8rem;
+        color: $primary;
+
+        & svg {
+          font-size: 1.8rem;
+        }
+      }
+
+      & a:last-child {
+        margin-right: 0;
+
+        & svg {
+          fill: $info;
+        }
+      }
+
+      & a:nth-child(2) {
+        & svg {
+          fill: $danger;
+        }
+      }
+    }
+
+    &-address-wrapper {
+      border-top: 1px solid $border-color-2;
+    }
+
+    &-address {
+      @include flex(flex-start, center);
+      flex-direction: column;
+      padding-block: 2rem;
+      @include responsive(lg-screen) {
+        flex-direction: row;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+      }
+
+      &-icon {
+        margin-right: 2rem;
+
+        & svg {
+          font-size: 6rem;
+          color: $text-color-opacity;
+          display: none;
+          @include responsive(lg-screen) {
+            display: block;
+          }
+        }
+      }
+
+      &-info {
+        @include style-text(500, 1.3rem, 2rem, $text-color);
+        & strong {
+          margin-right: 0.4rem;
+        }
+
+        & p:first-child {
+          margin-bottom: 0.6rem;
+        }
+
+        & p:last-child {
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+          margin-bottom: 0.6rem;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    @include responsive(lg-screen) {
+      margin-top: 2rem;
+      flex-direction: row;
+    }
+
+    &-left {
+      flex: 1;
+
+      & h4 {
+        @include style-text(500, 1.3rem, 2rem, $text-color);
+        margin-bottom: 0.5rem;
+      }
+      & p {
+        @include style-text(400, 1.2rem, 1.8rem, $text-color);
+      }
+    }
+
+    &-right {
+      flex: 1;
+      max-width: 150px;
+      margin-top: 1rem;
+      margin-left: auto;
+      @include responsive(lg-screen) {
+        margin-top: 0;
+      }
+    }
+  }
+}

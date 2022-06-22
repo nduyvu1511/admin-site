@@ -1,0 +1,27 @@
+.secondary__banner {
+  margin-bottom: -2rem;
+  & .swiper {
+    padding-bottom: 3rem;
+
+    & .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+      bottom: 0;
+    }
+
+    & .swiper-pagination-bullet {
+      background-color: $gray;
+    }
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    aspect-ratio: 3/1;
+    border: 1px solid #edeef5;
+    border-radius: 0.4rem;
+  }
+}

@@ -1,0 +1,13 @@
+.star-wrapper {
+  line-height: 1rem;
+
+  .star-icon {
+    &-fill {
+      fill: $star-bg;
+    }
+
+    &-outline {
+      fill: $star-empty-bg;
+    }
+  }
+}

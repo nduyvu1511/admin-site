@@ -1,0 +1,194 @@
+.modal {
+  @include fixed(unset, unset, 0, 0);
+  background-color: white;
+  width: 100%;
+  @media screen and (max-width: 420px) {
+    max-width: unset;
+  }
+
+  max-width: 380px;
+  z-index: 1010;
+
+  &-left {
+    left: 0;
+    transform: translateX(-100%);
+
+    &-active {
+      transform: translateX(0);
+    }
+  }
+
+  &-right {
+    right: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+
+    &-active {
+      transform: translateX(0%);
+      transition: all 0.3s ease;
+    }
+  }
+
+  &__header {
+    @include flex(space-between, center);
+
+    &-heading {
+      @include style-text(500, 1.6rem, 2.6rem, $text-color);
+      // @include responsive(md-screen) {
+      //   @include style-text(500, 1.8rem, 2.8rem, $text-color);
+      // }
+      // @include responsive(lg-screen) {
+      //   font-size: 2rem;
+      //   line-height: 3rem;
+      // }
+    }
+
+    & button {
+      & svg {
+        font-size: 2.4rem;
+        color: $text-color;
+      }
+    }
+  }
+
+  &-center {
+    width: 100%;
+    max-width: unset;
+    height: 100%;
+    bottom: unset;
+    left: 50%;
+    top: 50%;
+    padding: 3rem 2rem;
+    transform: translate(-50%, -50%) !important;
+    max-height: 90vh;
+    @include responsive(lg-screen) {
+      max-height: 90vh;
+    }
+    height: fit-content;
+    overflow-y: auto;
+    border-radius: 6px;
+    @include hide-scrollbar;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include responsive(sm-screen) {
+      max-width: 90vw;
+    }
+
+    @include responsive(md-screen) {
+      max-width: 80vw;
+    }
+
+    @include responsive(lg-screen) {
+      max-width: 800px;
+    }
+
+    @include responsive(screen-1024) {
+      max-width: 900px;
+    }
+
+    @include responsive(xl-screen) {
+      max-width: 1000px;
+    }
+
+    &-active {
+    }
+  }
+
+  &-size-auto {
+    max-width: unset;
+    max-height: unset;
+    height: unset;
+    width: unset;
+  }
+
+  &-active {
+    @include show;
+    transform: translateX(0);
+  }
+
+  &-stack {
+    z-index: 1012;
+
+    .overlay {
+      z-index: 1011;
+    }
+  }
+
+  &-full {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+.overlay {
+  background-color: rgba(35, 35, 35, 0.8);
+  @include fixed(0, 0, 0, 0);
+  z-index: 1009;
+  cursor: pointer;
+  @include hidden-animated;
+  transition: all 0.3s linear;
+  &-active {
+    @include visible-animated;
+  }
+
+  &-stack {
+    z-index: 1004;
+  }
+
+  &-disabled {
+    cursor: default;
+  }
+}
+
+.modal_container {
+  // .modal {
+  //   max-width: 96vw;
+  //   @include responsive(md-screen) {
+  //     max-width: 80vw;
+  //   }
+
+  //   @include responsive(lg-screen) {
+  //     max-width: 70vw;
+  //   }
+
+  //   @include responsive(xl-screen) {
+  //     max-width: 65vw;
+  //   }
+
+  //   @media screen and (min-width: 1300px) {
+  //     max-width: 60vw;
+  //   }
+  // }
+}
+
+@keyframes modal-show-down {
+  0% {
+    margin-top: -8rem;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+.modal__container {
+  & .modal__address {
+    & .modal {
+      padding: 3rem 2rem;
+
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+
+      @include responsive(sm-screen) {
+        max-width: 450px;
+        width: 100%;
+        height: auto;
+        border-radius: 0.4rem;
+      }
+    }
+  }
+}

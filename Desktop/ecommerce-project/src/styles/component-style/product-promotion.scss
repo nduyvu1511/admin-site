@@ -1,0 +1,109 @@
+.product__horizontal__item {
+  display: flex;
+  align-items: center;
+  font-family: $second-font;
+  @include responsive(sm-screen) {
+    padding: 2rem;
+  }
+
+  &-img {
+    width: 30%;
+    position: relative;
+
+    .product-promotion {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      font-size: 1.6rem;
+      top: -1rem;
+      left: 0;
+      z-index: 10;
+      background-color: $red;
+      font-weight: 600;
+      @include flex-center;
+      color: white;
+      border-radius: 50%;
+      @include responsive(sm-screen) {
+        font-size: 2.6rem;
+        top: -2rem;
+        left: -2rem;
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  &-content {
+    width: 70%;
+    margin-left: 3rem;
+
+    .content__price {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 1.6rem;
+
+      &-old {
+        @include style-text(600, 1.4rem, 1.4rem, $text-color);
+        opacity: 0.5;
+        text-decoration: line-through;
+      }
+
+      &-new {
+        @include style-text(700, 1.5rem, 1.5rem, $red);
+        margin-left: 1rem;
+
+        @include responsive(lg-screen) {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    .product-title {
+      font-family: $main-font;
+      @include style-text(500, 1.2rem, 1.8rem, $heading-color);
+      margin-bottom: 1.6rem;
+      @include limit-line-text(2);
+
+      @include responsive(sm-screen) {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        font-weight: 600;
+      }
+
+      @include responsive(lg-screen) {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+      }
+    }
+
+    .product-status {
+      @include style-text(600, 1.1rem, 1.1rem, $green);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.product__countdown {
+  display: flex;
+  align-items: center;
+  margin-top: 1.6rem;
+
+  .separate {
+    margin: 0 0.4rem;
+    font-size: 1.6rem;
+  }
+
+  &-item {
+    @include flex-center;
+    width: 30px;
+    height: 30px;
+    background-color: #edeef5;
+    @include style-text(600, 1.4rem, 1.4rem, $heading-color);
+  }
+
+  & p {
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+}

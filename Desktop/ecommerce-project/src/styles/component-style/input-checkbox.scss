@@ -1,0 +1,48 @@
+.input__checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid $border-color-1;
+  border-radius: 0.4rem;
+  @include flex-center;
+  transition: all 0.1s;
+  cursor: pointer;
+
+  &-active {
+    background-color: $primary-color;
+  }
+
+  & svg {
+    color: $white;
+    font-size: 1.6rem;
+  }
+
+  &-radio {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid $gray;
+
+    &-active {
+      position: relative;
+      border: 1px solid $primary-color;
+
+      &::after {
+        position: absolute;
+        content: "";
+        inset: 0;
+        width: 10px;
+        height: 10px;
+        background-color: $primary-color;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    & svg {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,240 @@
+.header__search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  position: relative;
+
+  @include responsive(lg-screen) {
+    height: 40px;
+  }
+
+  .header__search-input {
+    flex: 1;
+    font-family: $main-font;
+    height: 100%;
+    outline: none;
+    padding-left: 0.8rem;
+    @include style-text(500, 1.3rem, 1.3rem, $text-color);
+    background-color: #fff;
+    border-radius: 0.2rem;
+    border: 0;
+    padding-right: 2.8rem;
+    width: 100%;
+
+    @include responsive(sm-screen) {
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      font-weight: 500;
+    }
+
+    @include responsive(lg-screen) {
+      padding-left: 1.2rem;
+      padding-right: 5rem;
+    }
+  }
+
+  .header__search-input-clear {
+    @include hidden;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @include flex-center;
+    right: 0.8rem;
+
+    &-active {
+      @include show;
+    }
+
+    & svg {
+      opacity: 0.6;
+      font-size: 1.6rem;
+      pointer-events: none;
+      fill: $gray;
+    }
+
+    @include responsive(lg-screen) {
+      display: block;
+      right: 5.5rem;
+    }
+  }
+
+  .header__search-btn {
+    color: $text-color;
+    position: absolute;
+    border-radius: 0.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 89%;
+    right: 3px;
+    padding-inline: 1rem;
+    @include flex-center;
+    background-color: $primary-color;
+    display: none;
+
+    @include responsive(lg-screen) {
+      padding-inline: 1.5rem;
+    }
+
+    & svg {
+      font-size: 1.6rem;
+      pointer-events: none;
+      color: white;
+    }
+
+    @include responsive(lg-screen) {
+      display: block;
+    }
+  }
+}
+
+.search__result {
+  height: 100vh;
+  padding-bottom: 5rem;
+  overflow-y: scroll;
+  @include responsive(lg-screen) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: unset;
+    width: 100%;
+    max-height: 50vh;
+    margin-bottom: 2rem;
+    border-top: 1px solid rgb(225, 225, 225);
+    box-shadow: rgba(0, 0, 0, 0.28) 0px 6px 12px 0px;
+    padding-bottom: 0;
+  }
+
+  &-sm {
+    display: block;
+    @include responsive(lg-screen) {
+      display: none;
+    }
+  }
+
+  @include hide-scrollbar;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  background-color: #fff;
+  z-index: 20;
+  border-radius: 0 0 2px 2px;
+
+  &--no-result {
+    padding: 3rem;
+    text-align: center;
+    @include style-text(500, 1.5rem, 2rem, $text-color-opacity);
+
+    & span {
+      color: $text-color;
+      font-weight: 600;
+      margin-left: 0.4rem;
+
+      & small {
+        font-style: italic;
+      }
+    }
+  }
+
+  &-list {
+    list-style: none;
+    padding-bottom: 1rem;
+
+    & .search__result-loading {
+      background-color: #fff;
+      padding: 5rem 0;
+      @include flex-center;
+
+      & svg {
+        fill: $text-color;
+        font-size: 2rem;
+        animation: loading 1s linear infinite;
+      }
+    }
+
+    .search__result-keyword {
+      padding: 1.5rem;
+      @include flex(flex-start, center);
+      @include style-text(500, 1.3rem, 2.3rem, $text-color);
+      border-bottom: 1px solid $black-opacity-007;
+
+      @include responsive(lg-screen) {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+      }
+
+      & span {
+        white-space: nowrap;
+      }
+
+      @include responsive(md-screen) {
+        border-top: 0;
+      }
+
+      & p {
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-left: 0.6rem;
+        @include limit-line-text(1);
+
+        @include responsive(lg-screen) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &-item {
+      &-link {
+        padding: 1rem 1.5rem;
+        display: inline-block;
+        width: 100%;
+        @include flex(space-between, center);
+
+        &:hover {
+          @include responsive(lg-screen) {
+            background-color: $gray-color-opacity;
+          }
+        }
+      }
+
+      &-name {
+        flex: 1;
+        @include style-text(500, 1.3rem, 2.6rem, $text-color);
+        margin-right: 2rem;
+        pointer-events: none;
+      }
+      &-img {
+        width: 35px;
+        height: 35px;
+        aspect-ratio: 1;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.search-overlay {
+  background: rgba($color: #000000, $alpha: 0.6);
+  z-index: 100;
+  position: fixed;
+  inset: 0;
+  display: none;
+  @include responsive(lg-screen) {
+    display: block;
+  }
+}
+
+.search__mobile-modal {
+  background-color: $primary-color;
+  padding: 1rem 1.6rem;
+  display: flex;
+  align-items: center;
+
+  &-btn-back {
+    margin-right: 1.6rem;
+    & svg {
+      color: $white;
+      font-size: 2.4rem;
+    }
+  }
+}

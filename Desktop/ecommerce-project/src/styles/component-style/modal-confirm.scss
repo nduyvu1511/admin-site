@@ -1,0 +1,84 @@
+.modal__confirm-container {
+  @include fixed(0, 0, 0, 0);
+  z-index: 2001;
+
+  .modal__confirm {
+    padding: 2rem;
+    width: 100%;
+    width: 96vw;
+    box-shadow: $box-shadow-3;
+
+    @media screen and (min-width: 400px) {
+      max-width: 400px;
+    }
+    background-color: #fff;
+    border-radius: 0.6rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &-header {
+      display: flex;
+      align-items: center;
+
+      &-icon {
+        margin-right: 1rem;
+
+        & svg {
+          font-size: 3rem;
+          fill: $red;
+        }
+      }
+
+      &-heading {
+        @include style-text(600, 1.6rem, 2.6rem, $text-color);
+        flex: 1;
+      }
+    }
+
+    &-body {
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      &-desc {
+        text-align: left;
+        @include style-text(500, 1.4rem, 2.4rem, $text-color);
+        @include limit-line-text(3);
+      }
+    }
+
+    &-footer {
+      @include flex(flex-end, center);
+
+      &-btn {
+        border-radius: 0.4rem;
+        padding-block: 0.8rem;
+
+        &-cancel {
+          background-color: #6c757d;
+        }
+
+        &-delete {
+          background-color: $red;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.modal__confirm-overlay {
+  @include fixed(0, 0, 0, 0);
+  background-color: rgba($color: #000, $alpha: 0.4);
+  z-index: 2000;
+  display: none;
+  animation: fade-in 0.2s linear;
+
+  &-active {
+    display: block;
+  }
+}

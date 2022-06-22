@@ -1,0 +1,33 @@
+.menu__modal-heading {
+  width: 100%;
+  padding: 1.2rem 0;
+  @include responsive(lg-screen) {
+    padding: 2rem 0;
+  }
+  background-color: $primary-color;
+  text-align: center;
+  position: relative;
+
+  &-close {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+
+    & svg {
+      font-size: 2.4rem;
+      @include responsive(lg-screen) {
+        font-size: 3rem;
+      }
+      fill: $white-opacity;
+    }
+  }
+
+  & p {
+    @include style-text(600, 1.6rem, 2rem, white);
+    @include responsive(lg-screen) {
+      font-size: 2rem;
+    }
+    cursor: default;
+  }
+}
